@@ -1,0 +1,53 @@
+{
+    "name": "GeoNode",
+    "id": "geonode",
+    "available": true,
+    "short_desc": "Open Source Geospatial Content Management System.",
+    "author": "Eric D",
+    "categories": [
+        "data",
+        "media"
+    ],
+    "port": 80,
+    "version": "4.2.0",
+    "tipi_version": 2,
+    "description": "GeoNode is a web-based application and platform for developing geospatial information systems (GIS) and for deploying spatial data infrastructures (SDI).",
+    "source": "https://geonode.org/",
+    "exposable": true,
+    "form_fields": [
+        {
+            "type": "text",
+            "env_variable": "DB_HOST",
+            "label": "Postgres Host",
+            "default": "gis-postgres",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "DB_USER",
+            "label": "Postgres User",
+            "default": "tipi",
+            "required": true
+        },
+        {
+            "type": "password",
+            "env_variable": "DB_PASSWORD",
+            "label": "Postgres Password",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "GEONODE_LB_HOST_IP",
+            "label": "Site Host/Domain",
+            "default": "localhost",
+            "required": true,
+            "description": "The public IP or domain where GeoNode will be accessed (e.g. my-tipi.com or 192.168.1.100)"
+        },
+        {
+            "type": "password",
+            "env_variable": "ADMIN_PASSWORD",
+            "label": "GeoNode Admin Password",
+            "required": true
+        }
+    ]
+}
