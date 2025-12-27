@@ -18,5 +18,33 @@
         "amd64",
         "arm64"
     ],
-    "form_fields": []
+    "form_fields": [
+        {
+            "type": "text",
+            "env_variable": "DB_POSTGRESDB_HOST",
+            "label": "Postgres Host",
+            "default": "gis-postgres",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "DB_POSTGRESDB_USER",
+            "label": "Postgres User",
+            "default": "tipi",
+            "required": true
+        },
+        {
+            "type": "password",
+            "env_variable": "DB_POSTGRESDB_PASSWORD",
+            "label": "Postgres Password",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "DB_POSTGRESDB_DATABASE",
+            "label": "Postgres Database",
+            "default": "gis",
+            "required": true
+        }
+    ]
 }
