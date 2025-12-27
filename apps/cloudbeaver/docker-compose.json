@@ -1,0 +1,24 @@
+{
+    "version": "3.7",
+    "services": {
+        "cloudbeaver": {
+            "image": "dbeaver/cloudbeaver:latest",
+            "container_name": "cloudbeaver",
+            "restart": "unless-stopped",
+            "ports": [
+                "${APP_PORT}:8978"
+            ],
+            "volumes": [
+                "${APP_DATA_DIR}/workspace:/opt/cloudbeaver/workspace"
+            ],
+            "networks": [
+                "runtipi_network"
+            ]
+        }
+    },
+    "networks": {
+        "runtipi_network": {
+            "external": true
+        }
+    }
+}
