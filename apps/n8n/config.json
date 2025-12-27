@@ -1,0 +1,21 @@
+{
+    "name": "n8n Automation",
+    "id": "n8n",
+    "available": true,
+    "short_desc": "Workflow automation tool.",
+    "categories": [
+        "utilities",
+        "development"
+    ],
+    "port": 5678,
+    "version": "latest",
+    "tipi_version": 2,
+    "description": "n8n allows you to build complex workflows. Use it to connect Mergin Maps to Postgres, or trigger AI analysis.",
+    "source": "https://n8n.io",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": []
+}

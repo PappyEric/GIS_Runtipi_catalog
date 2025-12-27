@@ -1,0 +1,29 @@
+{
+    "name": "Martin Tile Server",
+    "id": "martin",
+    "available": true,
+    "short_desc": "Blazing fast PostGIS vector tile server.",
+    "categories": [
+        "utilities",
+        "data"
+    ],
+    "port": 3000,
+    "version": "v0.14.0",
+    "tipi_version": 2,
+    "description": "Martin is a tile server capable of generating Vector Tiles from PostGIS tables on the fly.",
+    "source": "https://github.com/maplibre/martin",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": [
+        {
+            "type": "text",
+            "name": "DATABASE_URL",
+            "label": "Database Connection String",
+            "default": "postgresql://tipi:password@gis-postgres:5432/gis",
+            "required": true
+        }
+    ]
+}

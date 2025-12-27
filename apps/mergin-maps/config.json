@@ -1,0 +1,20 @@
+{
+    "name": "Mergin Maps CE",
+    "id": "mergin-maps",
+    "available": true,
+    "short_desc": "Self-hosted Mergin Maps server for field data collection.",
+    "categories": [
+        "utilities",
+        "data"
+    ],
+    "port": 80,
+    "version": "latest",
+    "tipi_version": 2,
+    "description": "Mergin Maps Community Edition server. WARNING: Requires advanced configuration.",
+    "source": "https://github.com/MerginMaps/mergin-maps-server",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64"
+    ],
+    "form_fields": []
+}

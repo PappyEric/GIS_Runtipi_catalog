@@ -1,0 +1,42 @@
+version: '3.7'
+services:
+  lizmap:
+    image: 3liz/lizmap-web-client:3.8
+    container_name: lizmap
+    environment:
+      LIZMAP_QGIS_SERVER_URL: http://qgis-server:5555/fcgi-bin/qgis_mapserv.fcgi
+      LIZMAP_REDIS_HOST: redis
+    volumes:
+      - ${APP_DATA_DIR}/projects:/www/lizmap/project-home
+      - ${APP_DATA_DIR}/var:/www/lizmap/var
+    ports:
+      - ${APP_PORT}:8080
+    depends_on:
+      - qgis-server
+      - redis
+    networks:
+      - runtipi_network
+    restart: unless-stopped
+
+  qgis-server:
+    image: qgis/qgis-server:latest
+    container_name: lizmap-qgis-server
+    environment:
+      QGIS_SERVER_LOG_STDERR: 1
+      QGIS_SERVER_LANDING_PAGE_PROJECT: /data/landing.qgs
+    volumes:
+      - ${APP_DATA_DIR}/projects:/data
+    networks:
+      - runtipi_network
+    restart: unless-stopped
+
+  redis:
+    image: redis:alpine
+    container_name: lizmap-redis
+    networks:
+      - runtipi_network
+    restart: unless-stopped
+
+networks:
+  runtipi_network:
+    external: true

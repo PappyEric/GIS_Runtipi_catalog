@@ -1,0 +1,42 @@
+{
+    "name": "GIS PostGIS Engine",
+    "id": "gis-postgres",
+    "available": true,
+    "short_desc": "PostgreSQL 16 with PostGIS 3.4 and pgvector extensions.",
+    "categories": [
+        "data",
+        "utilities"
+    ],
+    "port": 5432,
+    "version": "16-3.4",
+    "tipi_version": 2,
+    "description": "Core spatial database engine with PostGIS and pgvector support. Based on joshuasundance-swca/postgis_pgvector image.",
+    "source": "https://github.com/joshuasundance-swca/docker-postgis-pgvector",
+    "exposable": false,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": [
+        {
+            "type": "text",
+            "name": "POSTGRES_USER",
+            "label": "Database User",
+            "default": "tipi",
+            "required": true
+        },
+        {
+            "type": "password",
+            "name": "POSTGRES_PASSWORD",
+            "label": "Database Password",
+            "required": true
+        },
+        {
+            "type": "text",
+            "name": "POSTGRES_DB",
+            "label": "Database Name",
+            "default": "gis",
+            "required": true
+        }
+    ]
+}

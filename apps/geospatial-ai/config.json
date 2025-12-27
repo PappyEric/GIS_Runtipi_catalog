@@ -1,0 +1,21 @@
+{
+    "name": "Geospatial AI Suite",
+    "id": "geospatial-ai",
+    "available": true,
+    "short_desc": "Private AI stack with Ollama and AnythingLLM.",
+    "categories": [
+        "utilities",
+        "media"
+    ],
+    "port": 3001,
+    "version": "1.0.0",
+    "tipi_version": 2,
+    "description": "A complete local AI stack. Includes Ollama for running LLMs and AnythingLLM for RAG/Chat interface.",
+    "source": "https://github.com/Mintplex-Labs/anything-llm",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": []
+}

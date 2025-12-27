@@ -1,0 +1,21 @@
+{
+    "name": "Geospatial Lab",
+    "id": "geospatial-lab",
+    "available": true,
+    "short_desc": "JupyterLab with Python, GeoPandas, and DuckDB.",
+    "categories": [
+        "utilities",
+        "development"
+    ],
+    "port": 8888,
+    "version": "2024.01",
+    "tipi_version": 2,
+    "description": "A data science notebook environment pre-configured for geospatial analysis.",
+    "source": "https://jupyter.org/",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": []
+}
