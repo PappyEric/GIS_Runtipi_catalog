@@ -1,0 +1,21 @@
+{
+    "services": [
+        {
+            "name": "geoserver",
+            "image": "kartoza/geoserver:latest",
+            "isMain": true,
+            "internalPort": "8080",
+            "environment": {
+                "GEOSERVER_ADMIN_USER": "${GEOSERVER_ADMIN_USER}",
+                "GEOSERVER_ADMIN_PASSWORD": "${GEOSERVER_ADMIN_PASSWORD}",
+                "SAMPLE_DATA": "true"
+            },
+            "volumes": [
+                {
+                    "hostPath": "${APP_DATA_DIR}/data",
+                    "containerPath": "/opt/geoserver/data_dir"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,36 @@
+{
+    "name": "GeoServer",
+    "id": "geoserver",
+    "available": true,
+    "short_desc": "Open source server for sharing geospatial data.",
+    "author": "Eric D",
+    "categories": [
+        "utilities",
+        "data"
+    ],
+    "port": 8080,
+    "version": "latest",
+    "tipi_version": 2,
+    "description": "GeoServer is an open source server for sharing geospatial data. Designed for interoperability, it publishes data from any major spatial data source using open standards.",
+    "source": "http://geoserver.org/",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": [
+        {
+            "type": "text",
+            "env_variable": "GEOSERVER_ADMIN_USER",
+            "label": "Admin User",
+            "default": "admin",
+            "required": true
+        },
+        {
+            "type": "password",
+            "env_variable": "GEOSERVER_ADMIN_PASSWORD",
+            "label": "Admin Password",
+            "required": true
+        }
+    ]
+}

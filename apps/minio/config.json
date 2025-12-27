@@ -1,0 +1,36 @@
+{
+    "name": "MinIO Objects",
+    "id": "minio",
+    "available": true,
+    "short_desc": "High performance, S3 compatible object storage.",
+    "author": "Eric D",
+    "categories": [
+        "utilities",
+        "data"
+    ],
+    "port": 9001,
+    "version": "latest",
+    "tipi_version": 2,
+    "description": "MinIO is a high performance Object Storage released under GNU Affero General Public License v3.0.",
+    "source": "https://min.io/",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": [
+        {
+            "type": "text",
+            "env_variable": "MINIO_ROOT_USER",
+            "label": "Root User",
+            "default": "minioadmin",
+            "required": true
+        },
+        {
+            "type": "password",
+            "env_variable": "MINIO_ROOT_PASSWORD",
+            "label": "Root Password",
+            "required": true
+        }
+    ]
+}
