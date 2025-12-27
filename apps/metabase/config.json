@@ -1,0 +1,50 @@
+{
+    "name": "Metabase",
+    "id": "metabase",
+    "available": true,
+    "short_desc": "Business intelligence and analytics.",
+    "author": "Eric D",
+    "categories": [
+        "utilities",
+        "development"
+    ],
+    "port": 3000,
+    "version": "latest",
+    "tipi_version": 2,
+    "description": "The simplest, fastest way to get business intelligence and analytics to everyone in your company.",
+    "source": "https://www.metabase.com/",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": [
+        {
+            "type": "text",
+            "env_variable": "MB_DB_HOST",
+            "label": "Postgres Host",
+            "default": "gis-postgres",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "MB_DB_USER",
+            "label": "Postgres User",
+            "default": "tipi",
+            "required": true
+        },
+        {
+            "type": "password",
+            "env_variable": "MB_DB_PASS",
+            "label": "Postgres Password",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "MB_DB_DBNAME",
+            "label": "Postgres Database",
+            "default": "gis",
+            "required": true
+        }
+    ]
+}

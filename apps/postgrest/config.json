@@ -1,0 +1,50 @@
+{
+    "name": "PostgREST",
+    "id": "postgrest",
+    "available": true,
+    "short_desc": "REST API for any Postgres database.",
+    "author": "Eric D",
+    "categories": [
+        "utilities",
+        "development"
+    ],
+    "port": 3000,
+    "version": "latest",
+    "tipi_version": 2,
+    "description": "PostgREST serves a fully RESTful API from any existing PostgreSQL database.",
+    "source": "https://postgrest.org/",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": [
+        {
+            "type": "text",
+            "env_variable": "DB_HOST",
+            "label": "Postgres Host",
+            "default": "gis-postgres",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "DB_USER",
+            "label": "Postgres User",
+            "default": "tipi",
+            "required": true
+        },
+        {
+            "type": "password",
+            "env_variable": "DB_PASSWORD",
+            "label": "Postgres Password",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "DB_NAME",
+            "label": "Postgres Database",
+            "default": "gis",
+            "required": true
+        }
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "services": [
+        {
+            "name": "postgrest",
+            "image": "postgrest/postgrest:latest",
+            "isMain": true,
+            "internalPort": "3000",
+            "environment": {
+                "PGRST_DB_URI": "postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5432/${DB_NAME}",
+                "PGRST_DB_SCHEMA": "public",
+                "PGRST_DB_ANON_ROLE": "${DB_USER}"
+            }
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+{
+    "services": [
+        {
+            "name": "metabase",
+            "image": "metabase/metabase:latest",
+            "isMain": true,
+            "internalPort": "3000",
+            "environment": {
+                "MB_DB_TYPE": "postgres",
+                "MB_DB_DBNAME": "${MB_DB_DBNAME}",
+                "MB_DB_PORT": "5432",
+                "MB_DB_USER": "${MB_DB_USER}",
+                "MB_DB_PASS": "${MB_DB_PASS}",
+                "MB_DB_HOST": "${MB_DB_HOST}"
+            },
+            "volumes": [
+                {
+                    "hostPath": "${APP_DATA_DIR}/data",
+                    "containerPath": "/metabase-data"
+                }
+            ]
+        }
+    ]
+}
