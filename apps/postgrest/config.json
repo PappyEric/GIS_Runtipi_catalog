@@ -2,7 +2,7 @@
     "name": "PostgREST",
     "id": "postgrest",
     "available": true,
-    "short_desc": "REST API for any Postgres database.",
+    "short_desc": "Instant REST API for your GIS database.",
     "author": "Eric D",
     "categories": [
         "utilities",
@@ -11,7 +11,7 @@
     "port": 3000,
     "version": "latest",
     "tipi_version": 2,
-    "description": "PostgREST serves a fully RESTful API from any existing PostgreSQL database.",
+    "description": "Automatically generates a RESTful API from your PostgreSQL schema. Ideal for building web apps on top of PostGIS without custom backend code.",
     "source": "https://postgrest.org/",
     "exposable": true,
     "supported_architectures": [

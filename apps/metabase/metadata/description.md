@@ -1,6 +1,11 @@
-# Metabase
+# Metabase: Analytics for Everyone
 
-Metabase is an open source business intelligence tool. It lets you ask questions about your data and displays answers in formats that make sense, whether that’s a bar graph or a detailed table.
+**Metabase** is an open-source Business Intelligence (BI) tool that lets anyone in your team ask questions about your data without knowing SQL.
 
-## Data Storage
-Uses the internal H2 database for its own settings by default, but connects to `gis-postgres` for analytics.
+## Why use this?
+- **Visualize Your Data**: Create beautiful dashboards, bar charts, and pies from your GIS tables.
+- **Map Integration**: Metabase has native support for mapping coordinates and regions.
+- **Embedded Analytics**: Share dashboards publicly or embed them in other applications.
+
+## Integration
+This instance is pre-configured to connect to `gis-postgres`. Use the credentials you set up during installation to link your `gis` database and start exploring.

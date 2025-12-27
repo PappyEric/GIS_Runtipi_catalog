@@ -2,7 +2,7 @@
     "name": "MinIO Objects",
     "id": "minio",
     "available": true,
-    "short_desc": "High performance, S3 compatible object storage.",
+    "short_desc": "Enterprise-grade S3 compatible object storage.",
     "author": "Eric D",
     "categories": [
         "utilities",
@@ -11,7 +11,7 @@
     "port": 9001,
     "version": "latest",
     "tipi_version": 2,
-    "description": "MinIO is a high performance Object Storage released under GNU Affero General Public License v3.0.",
+    "description": "The standard layer for GIS file storage. Use MinIO to host massive raster datasets, point clouds, and backups with an S3-compatible API.",
     "source": "https://min.io/",
     "exposable": true,
     "supported_architectures": [
