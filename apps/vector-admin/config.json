@@ -1,0 +1,21 @@
+{
+    "name": "Vector Admin",
+    "id": "vector-admin",
+    "available": true,
+    "short_desc": "GUI for managing pgvector embeddings.",
+    "categories": [
+        "utilities",
+        "development"
+    ],
+    "port": 3001,
+    "version": "latest",
+    "tipi_version": 2,
+    "description": "A lightweight GUI for managing your PostgreSQL + pgvector database. View, search, and manage vector embeddings.",
+    "source": "https://github.com/Mintplex-Labs/vector-admin",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": []
+}

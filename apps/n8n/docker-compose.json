@@ -10,7 +10,16 @@
             ],
             "environment": [
                 "GENERIC_TIMEZONE=America/New_York",
-                "TZ=America/New_York"
+                "TZ=America/New_York",
+                "DB_TYPE=postgresdb",
+                "DB_POSTGRESDB_HOST=gis-postgres",
+                "DB_POSTGRESDB_PORT=5432",
+                "DB_POSTGRESDB_DATABASE=n8n",
+                "DB_POSTGRESDB_USER=tipi",
+                "DB_POSTGRESDB_PASSWORD=password"
+            ],
+            "depends_on": [
+                "gis-postgres"
             ],
             "volumes": [
                 "${APP_DATA_DIR}/data:/home/node/.n8n"

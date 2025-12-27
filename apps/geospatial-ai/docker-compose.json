@@ -10,13 +10,20 @@
             ],
             "environment": [
                 "STORAGE_DIR=/app/server/storage",
-                "OLLAMA_BASE_URL=http://ollama:11434"
+                "OLLAMA_BASE_URL=http://ollama:11434",
+                "DB_provider=postgres",
+                "DB_host=gis-postgres",
+                "DB_port=5432",
+                "DB_user=tipi",
+                "DB_password=password",
+                "DB_database=gis"
             ],
             "volumes": [
                 "${APP_DATA_DIR}/anythingllm:/app/server/storage"
             ],
             "depends_on": [
-                "ollama"
+                "ollama",
+                "gis-postgres"
             ],
             "networks": [
                 "runtipi_network"

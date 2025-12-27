@@ -1,0 +1,24 @@
+{
+    "version": "3.7",
+    "services": {
+        "potree": {
+            "image": "nginx:alpine",
+            "container_name": "potree",
+            "restart": "unless-stopped",
+            "ports": [
+                "${APP_PORT}:80"
+            ],
+            "volumes": [
+                "${APP_DATA_DIR}/www:/usr/share/nginx/html"
+            ],
+            "networks": [
+                "runtipi_network"
+            ]
+        }
+    },
+    "networks": {
+        "runtipi_network": {
+            "external": true
+        }
+    }
+}

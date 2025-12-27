@@ -1,0 +1,35 @@
+{
+    "name": "QGIS Web Desktop",
+    "id": "qgis-web",
+    "available": true,
+    "short_desc": "Full QGIS Desktop running in browser via KasmVNC.",
+    "categories": [
+        "utilities",
+        "media"
+    ],
+    "port": 3000,
+    "version": "latest",
+    "tipi_version": 2,
+    "description": "Run the full Linux desktop version of QGIS directly in your browser. Powered by KasmVNC.",
+    "source": "https://github.com/linuxserver/docker-qgis",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": [
+        {
+            "type": "text",
+            "name": "KASM_USER",
+            "label": "KasmVNC User",
+            "default": "kasm_user",
+            "required": true
+        },
+        {
+            "type": "password",
+            "name": "KASM_PASSWORD",
+            "label": "KasmVNC Password",
+            "required": true
+        }
+    ]
+}

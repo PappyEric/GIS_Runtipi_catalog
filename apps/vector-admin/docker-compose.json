@@ -1,0 +1,31 @@
+{
+    "version": "3.7",
+    "services": {
+        "vector-admin": {
+            "image": "mintplexlabs/vector-admin:latest",
+            "container_name": "vector-admin",
+            "restart": "unless-stopped",
+            "ports": [
+                "${APP_PORT}:3001"
+            ],
+            "environment": [
+                "PG_HOST=gis-postgres",
+                "PG_PORT=5432",
+                "PG_USER=tipi",
+                "PG_PASS=password",
+                "PG_DB=gis"
+            ],
+            "depends_on": [
+                "gis-postgres"
+            ],
+            "networks": [
+                "runtipi_network"
+            ]
+        }
+    },
+    "networks": {
+        "runtipi_network": {
+            "external": true
+        }
+    }
+}

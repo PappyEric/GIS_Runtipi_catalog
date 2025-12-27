@@ -1,0 +1,21 @@
+{
+    "name": "Potree 3D Viewer",
+    "id": "potree",
+    "available": true,
+    "short_desc": "Web-based large point cloud renderer.",
+    "categories": [
+        "utilities",
+        "media"
+    ],
+    "port": 80,
+    "version": "latest",
+    "tipi_version": 2,
+    "description": "A static web server pre-configured to host Potree point cloud projects. Upload your converted Potree data to view.",
+    "source": "https://github.com/potree/potree",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": []
+}
