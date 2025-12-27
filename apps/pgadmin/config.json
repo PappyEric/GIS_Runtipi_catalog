@@ -1,0 +1,35 @@
+{
+    "name": "pgAdmin 4",
+    "id": "pgadmin",
+    "available": true,
+    "short_desc": "Administration and management tool for PostgreSQL.",
+    "categories": [
+        "utilities",
+        "development"
+    ],
+    "port": 80,
+    "version": "latest",
+    "tipi_version": 2,
+    "description": "The most popular open source management tool for PostgreSQL.",
+    "source": "https://www.pgadmin.org/",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": [
+        {
+            "type": "email",
+            "name": "PGADMIN_DEFAULT_EMAIL",
+            "label": "Admin Email",
+            "default": "admin@admin.com",
+            "required": true
+        },
+        {
+            "type": "password",
+            "name": "PGADMIN_DEFAULT_PASSWORD",
+            "label": "Admin Password",
+            "required": true
+        }
+    ]
+}

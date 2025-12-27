@@ -1,0 +1,21 @@
+{
+    "name": "CloudBeaver",
+    "id": "cloudbeaver",
+    "available": true,
+    "short_desc": "Cloud Database Manager for PostgreSQL and more.",
+    "categories": [
+        "utilities",
+        "development"
+    ],
+    "port": 8978,
+    "version": "latest",
+    "tipi_version": 2,
+    "description": "CloudBeaver is a web-based database management tool. It supports PostgreSQL, SQLite, and more. Perfect for managing your GIS database.",
+    "source": "https://github.com/dbeaver/cloudbeaver",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": []
+}
