@@ -1,29 +1,21 @@
 {
-    "version": "3.7",
-    "services": {
-        "gis-postgres": {
+    "services": [
+        {
+            "name": "gis-postgres",
             "image": "joshuasundance-swca/postgis_pgvector:16-3.4",
-            "container_name": "gis-postgres",
-            "restart": "unless-stopped",
-            "ports": [
-                "${APP_PORT}:5432"
-            ],
-            "environment": [
-                "POSTGRES_USER=${POSTGRES_USER}",
-                "POSTGRES_PASSWORD=${POSTGRES_PASSWORD}",
-                "POSTGRES_DB=${POSTGRES_DB}"
-            ],
+            "isMain": true,
+            "internalPort": "5432",
+            "environment": {
+                "POSTGRES_USER": "${POSTGRES_USER}",
+                "POSTGRES_PASSWORD": "${POSTGRES_PASSWORD}",
+                "POSTGRES_DB": "${POSTGRES_DB}"
+            },
             "volumes": [
-                "${APP_DATA_DIR}/data:/var/lib/postgresql/data"
-            ],
-            "networks": [
-                "runtipi_network"
+                {
+                    "hostPath": "${APP_DATA_DIR}/data",
+                    "containerPath": "/var/lib/postgresql/data"
+                }
             ]
         }
-    },
-    "networks": {
-        "runtipi_network": {
-            "external": true
-        }
-    }
+    ]
 }

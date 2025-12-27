@@ -10,7 +10,8 @@
     "port": 8080,
     "version": "3.8.3",
     "tipi_version": 2,
-    "description": "Lizmap allows you to publish QGIS projects as interactive web maps. Includes QGIS Server backend.",
+    "description": "Web client for QGIS Server.",
+    "author": "Eric D",
     "source": "https://github.com/3liz/lizmap-web-client",
     "exposable": true,
     "supported_architectures": [

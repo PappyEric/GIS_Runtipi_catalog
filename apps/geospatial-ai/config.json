@@ -10,7 +10,8 @@
     "port": 3001,
     "version": "1.0.0",
     "tipi_version": 2,
-    "description": "A complete local AI stack. Includes Ollama for running LLMs and AnythingLLM for RAG/Chat interface.",
+    "description": "A suite of AI tools for geospatial analysis including AnythingLLM and Ollama.",
+    "author": "Eric D",
     "source": "https://github.com/Mintplex-Labs/anything-llm",
     "exposable": true,
     "supported_architectures": [

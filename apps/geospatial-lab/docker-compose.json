@@ -1,29 +1,21 @@
 {
-    "version": "3.7",
-    "services": {
-        "geospatial-lab": {
+    "services": [
+        {
+            "name": "geospatial-lab",
             "image": "quay.io/jupyter/datascience-notebook:latest",
-            "container_name": "geospatial-lab",
-            "restart": "unless-stopped",
-            "ports": [
-                "${APP_PORT}:8888"
-            ],
-            "environment": [
-                "JUPYTER_TOKEN=${APP_PASSWORD}",
-                "JUPYTER_ENABLE_LAB=yes"
-            ],
+            "isMain": true,
+            "internalPort": "8888",
+            "environment": {
+                "JUPYTER_TOKEN": "${APP_PASSWORD}",
+                "JUPYTER_ENABLE_LAB": "yes"
+            },
             "volumes": [
-                "${APP_DATA_DIR}/work:/home/jovyan/work"
-            ],
-            "networks": [
-                "runtipi_network"
+                {
+                    "hostPath": "${APP_DATA_DIR}/work",
+                    "containerPath": "/home/jovyan/work"
+                }
             ],
             "command": "start-notebook.sh --NotebookApp.token='${APP_PASSWORD}'"
         }
-    },
-    "networks": {
-        "runtipi_network": {
-            "external": true
-        }
-    }
+    ]
 }

@@ -1,24 +1,16 @@
 {
-    "version": "3.7",
-    "services": {
-        "cloudbeaver": {
+    "services": [
+        {
+            "name": "cloudbeaver",
             "image": "dbeaver/cloudbeaver:latest",
-            "container_name": "cloudbeaver",
-            "restart": "unless-stopped",
-            "ports": [
-                "${APP_PORT}:8978"
-            ],
+            "isMain": true,
+            "internalPort": "8978",
             "volumes": [
-                "${APP_DATA_DIR}/workspace:/opt/cloudbeaver/workspace"
-            ],
-            "networks": [
-                "runtipi_network"
+                {
+                    "hostPath": "${APP_DATA_DIR}/workspace",
+                    "containerPath": "/opt/cloudbeaver/workspace"
+                }
             ]
         }
-    },
-    "networks": {
-        "runtipi_network": {
-            "external": true
-        }
-    }
+    ]
 }

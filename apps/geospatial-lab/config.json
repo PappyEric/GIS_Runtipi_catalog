@@ -3,6 +3,7 @@
     "id": "geospatial-lab",
     "available": true,
     "short_desc": "JupyterLab with Python, GeoPandas, and DuckDB.",
+    "author": "Eric D",
     "categories": [
         "utilities",
         "development"

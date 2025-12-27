@@ -3,6 +3,7 @@
     "id": "potree",
     "available": true,
     "short_desc": "Web-based large point cloud renderer.",
+    "author": "Eric D",
     "categories": [
         "utilities",
         "media"

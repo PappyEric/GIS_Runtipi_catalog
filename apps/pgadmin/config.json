@@ -10,7 +10,8 @@
     "port": 80,
     "version": "latest",
     "tipi_version": 2,
-    "description": "The most popular open source management tool for PostgreSQL.",
+    "description": "PostgreSQL database management tool.",
+    "author": "Eric D",
     "source": "https://www.pgadmin.org/",
     "exposable": true,
     "supported_architectures": [
@@ -20,14 +21,14 @@
     "form_fields": [
         {
             "type": "email",
-            "name": "PGADMIN_DEFAULT_EMAIL",
+            "env_variable": "PGADMIN_DEFAULT_EMAIL",
             "label": "Admin Email",
             "default": "admin@admin.com",
             "required": true
         },
         {
             "type": "password",
-            "name": "PGADMIN_DEFAULT_PASSWORD",
+            "env_variable": "PGADMIN_DEFAULT_PASSWORD",
             "label": "Admin Password",
             "required": true
         }

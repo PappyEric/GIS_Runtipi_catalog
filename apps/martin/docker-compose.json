@@ -1,22 +1,11 @@
 {
-    "version": "3.7",
-    "services": {
-        "martin": {
+    "services": [
+        {
+            "name": "martin",
             "image": "maplibre/martin:v0.14.0",
-            "container_name": "martin",
-            "command": "${DATABASE_URL}",
-            "restart": "unless-stopped",
-            "ports": [
-                "${APP_PORT}:3000"
-            ],
-            "networks": [
-                "runtipi_network"
-            ]
+            "isMain": true,
+            "internalPort": "3000",
+            "command": "${DATABASE_URL}"
         }
-    },
-    "networks": {
-        "runtipi_network": {
-            "external": true
-        }
-    }
+    ]
 }

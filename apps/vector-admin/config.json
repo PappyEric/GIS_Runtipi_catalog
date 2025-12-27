@@ -3,6 +3,7 @@
     "id": "vector-admin",
     "available": true,
     "short_desc": "GUI for managing pgvector embeddings.",
+    "author": "Eric D",
     "categories": [
         "utilities",
         "development"

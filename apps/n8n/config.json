@@ -3,6 +3,7 @@
     "id": "n8n",
     "available": true,
     "short_desc": "Workflow automation tool.",
+    "author": "Eric D",
     "categories": [
         "utilities",
         "development"

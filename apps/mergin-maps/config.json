@@ -11,6 +11,7 @@
     "version": "latest",
     "tipi_version": 2,
     "description": "Mergin Maps Community Edition server. WARNING: Requires advanced configuration.",
+    "author": "Eric D",
     "source": "https://github.com/MerginMaps/mergin-maps-server",
     "exposable": true,
     "supported_architectures": [

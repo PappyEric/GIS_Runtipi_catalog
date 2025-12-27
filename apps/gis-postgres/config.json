@@ -3,6 +3,7 @@
     "id": "gis-postgres",
     "available": true,
     "short_desc": "PostgreSQL 16 with PostGIS 3.4 and pgvector extensions.",
+    "author": "Eric D",
     "categories": [
         "data",
         "utilities"
@@ -20,20 +21,20 @@
     "form_fields": [
         {
             "type": "text",
-            "name": "POSTGRES_USER",
+            "env_variable": "POSTGRES_USER",
             "label": "Database User",
             "default": "tipi",
             "required": true
         },
         {
             "type": "password",
-            "name": "POSTGRES_PASSWORD",
+            "env_variable": "POSTGRES_PASSWORD",
             "label": "Database Password",
             "required": true
         },
         {
             "type": "text",
-            "name": "POSTGRES_DB",
+            "env_variable": "POSTGRES_DB",
             "label": "Database Name",
             "default": "gis",
             "required": true

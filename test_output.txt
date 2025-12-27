@@ -1,0 +1,452 @@
+
+> gis-runtipi-catalog@1.0.0 test
+> bun test
+
+bun test v1.3.5 (1e86cebd)
+
+__tests__\apps.test.ts:
+(pass) each app should have the required files > app cloudbeaver should have config.json
+(pass) each app should have the required files > app cloudbeaver should have docker-compose.json [15.00ms]
+(pass) each app should have the required files > app cloudbeaver should have metadata/logo.jpg [16.00ms]
+(pass) each app should have the required files > app cloudbeaver should have metadata/description.md
+(pass) each app should have the required files > app geospatial-ai should have config.json
+(pass) each app should have the required files > app geospatial-ai should have docker-compose.json
+(pass) each app should have the required files > app geospatial-ai should have metadata/logo.jpg [15.00ms]
+(pass) each app should have the required files > app geospatial-ai should have metadata/description.md
+(pass) each app should have the required files > app geospatial-lab should have config.json
+(pass) each app should have the required files > app geospatial-lab should have docker-compose.json
+(pass) each app should have the required files > app geospatial-lab should have metadata/logo.jpg [16.00ms]
+(pass) each app should have the required files > app geospatial-lab should have metadata/description.md
+(pass) each app should have the required files > app gis-postgres should have config.json
+(pass) each app should have the required files > app gis-postgres should have docker-compose.json
+(pass) each app should have the required files > app gis-postgres should have metadata/logo.jpg [16.00ms]
+(pass) each app should have the required files > app gis-postgres should have metadata/description.md
+(pass) each app should have the required files > app lizmap should have config.json
+(pass) each app should have the required files > app lizmap should have docker-compose.json
+(pass) each app should have the required files > app lizmap should have metadata/logo.jpg [15.00ms]
+(pass) each app should have the required files > app lizmap should have metadata/description.md
+(pass) each app should have the required files > app martin should have config.json
+(pass) each app should have the required files > app martin should have docker-compose.json
+(pass) each app should have the required files > app martin should have metadata/logo.jpg [16.00ms]
+(pass) each app should have the required files > app martin should have metadata/description.md
+(pass) each app should have the required files > app mergin-maps should have config.json
+(pass) each app should have the required files > app mergin-maps should have docker-compose.json
+(pass) each app should have the required files > app mergin-maps should have metadata/logo.jpg [16.00ms]
+(pass) each app should have the required files > app mergin-maps should have metadata/description.md
+(pass) each app should have the required files > app n8n should have config.json
+(pass) each app should have the required files > app n8n should have docker-compose.json
+(pass) each app should have the required files > app n8n should have metadata/logo.jpg [15.00ms]
+(pass) each app should have the required files > app n8n should have metadata/description.md
+(pass) each app should have the required files > app pgadmin should have config.json
+(pass) each app should have the required files > app pgadmin should have docker-compose.json
+(pass) each app should have the required files > app pgadmin should have metadata/logo.jpg [16.00ms]
+(pass) each app should have the required files > app pgadmin should have metadata/description.md
+(pass) each app should have the required files > app potree should have config.json
+(pass) each app should have the required files > app potree should have docker-compose.json
+(pass) each app should have the required files > app potree should have metadata/logo.jpg [47.00ms]
+(pass) each app should have the required files > app potree should have metadata/description.md
+(pass) each app should have the required files > app qgis-web should have config.json
+(pass) each app should have the required files > app qgis-web should have docker-compose.json
+(pass) each app should have the required files > app qgis-web should have metadata/logo.jpg [15.00ms]
+(pass) each app should have the required files > app qgis-web should have metadata/description.md
+(pass) each app should have the required files > app vector-admin should have config.json
+(pass) each app should have the required files > app vector-admin should have docker-compose.json
+(pass) each app should have the required files > app vector-admin should have metadata/logo.jpg [16.00ms]
+(pass) each app should have the required files > app vector-admin should have metadata/description.md
+(pass) each app should have the required files > app whoami should have config.json
+(pass) each app should have the required files > app whoami should have docker-compose.json
+(pass) each app should have the required files > app whoami should have metadata/logo.jpg
+(pass) each app should have the required files > app whoami should have metadata/description.md
+Error parsing config.json for app cloudbeaver: Validation error: Required at "author"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app cloudbeaver should have a valid config.json [16.00ms]
+Error parsing config.json for app geospatial-ai: Validation error: Required at "author"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app geospatial-ai should have a valid config.json
+Error parsing config.json for app geospatial-lab: Validation error: Required at "author"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app geospatial-lab should have a valid config.json
+Error parsing config.json for app gis-postgres: Validation error: Required at "author"; Required at "form_fields[0].env_variable"; Required at "form_fields[1].env_variable"; Required at "form_fields[2].env_variable"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app gis-postgres should have a valid config.json [15.00ms]
+Error parsing config.json for app lizmap: Validation error: Required at "author"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app lizmap should have a valid config.json
+Error parsing config.json for app martin: Validation error: Required at "author"; Required at "form_fields[0].env_variable"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app martin should have a valid config.json
+Error parsing config.json for app mergin-maps: Validation error: Required at "author"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app mergin-maps should have a valid config.json
+Error parsing config.json for app n8n: Validation error: Required at "author"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app n8n should have a valid config.json
+Error parsing config.json for app pgadmin: Validation error: Required at "author"; Required at "form_fields[0].env_variable"; Required at "form_fields[1].env_variable"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app pgadmin should have a valid config.json
+Error parsing config.json for app potree: Validation error: Required at "author"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app potree should have a valid config.json
+Error parsing config.json for app qgis-web: Validation error: Required at "author"; Required at "form_fields[0].env_variable"; Required at "form_fields[1].env_variable"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app qgis-web should have a valid config.json [16.00ms]
+Error parsing config.json for app vector-admin: Validation error: Required at "author"
+51 |       if (!parsed.success) {
+52 |         const validationError = fromError(parsed.error);
+53 |         console.error(`Error parsing config.json for app ${app}:`, validationError.toString());
+54 |       }
+55 | 
+56 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:56:30)
+(fail) each app should have a valid config.json > app vector-admin should have a valid config.json
+(pass) each app should have a valid config.json > app whoami should have a valid config.json
+Error parsing docker-compose.json for app cloudbeaver: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app cloudbeaver should have a valid docker-compose.json
+Error parsing docker-compose.json for app geospatial-ai: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app geospatial-ai should have a valid docker-compose.json
+Error parsing docker-compose.json for app geospatial-lab: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app geospatial-lab should have a valid docker-compose.json
+Error parsing docker-compose.json for app gis-postgres: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app gis-postgres should have a valid docker-compose.json
+Error parsing docker-compose.json for app lizmap: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app lizmap should have a valid docker-compose.json
+Error parsing docker-compose.json for app martin: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app martin should have a valid docker-compose.json
+Error parsing docker-compose.json for app mergin-maps: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app mergin-maps should have a valid docker-compose.json
+Error parsing docker-compose.json for app n8n: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app n8n should have a valid docker-compose.json
+Error parsing docker-compose.json for app pgadmin: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app pgadmin should have a valid docker-compose.json [15.00ms]
+Error parsing docker-compose.json for app potree: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app potree should have a valid docker-compose.json
+Error parsing docker-compose.json for app qgis-web: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app qgis-web should have a valid docker-compose.json
+Error parsing docker-compose.json for app vector-admin: Validation error: Expected array, received object at "services"
+69 |       if (!parsed.success) {
+70 |         const validationError = fromError(parsed.error);
+71 |         console.error(`Error parsing docker-compose.json for app ${app}:`, validationError.toString());
+72 |       }
+73 | 
+74 |       expect(parsed.success).toBe(true)
+                                  ^
+error: expect(received).toBe(expected)
+
+Expected: true
+Received: false
+
+      at <anonymous> (F:\GeminiProjects\GIS_Runtipi_catalog\__tests__\apps.test.ts:74:30)
+(fail) each app should have a valid docker-compose.json > app vector-admin should have a valid docker-compose.json
+(pass) each app should have a valid docker-compose.json > app whoami should have a valid docker-compose.json
+
+24 tests failed:
+(fail) each app should have a valid config.json > app cloudbeaver should have a valid config.json [16.00ms]
+(fail) each app should have a valid config.json > app geospatial-ai should have a valid config.json
+(fail) each app should have a valid config.json > app geospatial-lab should have a valid config.json
+(fail) each app should have a valid config.json > app gis-postgres should have a valid config.json [15.00ms]
+(fail) each app should have a valid config.json > app lizmap should have a valid config.json
+(fail) each app should have a valid config.json > app martin should have a valid config.json
+(fail) each app should have a valid config.json > app mergin-maps should have a valid config.json
+(fail) each app should have a valid config.json > app n8n should have a valid config.json
+(fail) each app should have a valid config.json > app pgadmin should have a valid config.json
+(fail) each app should have a valid config.json > app potree should have a valid config.json
+(fail) each app should have a valid config.json > app qgis-web should have a valid config.json [16.00ms]
+(fail) each app should have a valid config.json > app vector-admin should have a valid config.json
+(fail) each app should have a valid docker-compose.json > app cloudbeaver should have a valid docker-compose.json
+(fail) each app should have a valid docker-compose.json > app geospatial-ai should have a valid docker-compose.json
+(fail) each app should have a valid docker-compose.json > app geospatial-lab should have a valid docker-compose.json
+(fail) each app should have a valid docker-compose.json > app gis-postgres should have a valid docker-compose.json
+(fail) each app should have a valid docker-compose.json > app lizmap should have a valid docker-compose.json
+(fail) each app should have a valid docker-compose.json > app martin should have a valid docker-compose.json
+(fail) each app should have a valid docker-compose.json > app mergin-maps should have a valid docker-compose.json
+(fail) each app should have a valid docker-compose.json > app n8n should have a valid docker-compose.json
+(fail) each app should have a valid docker-compose.json > app pgadmin should have a valid docker-compose.json [15.00ms]
+(fail) each app should have a valid docker-compose.json > app potree should have a valid docker-compose.json
+(fail) each app should have a valid docker-compose.json > app qgis-web should have a valid docker-compose.json
+(fail) each app should have a valid docker-compose.json > app vector-admin should have a valid docker-compose.json
+
+ 54 pass
+ 24 fail
+ 78 expect() calls
+Ran 78 tests across 1 file. [465.00ms]

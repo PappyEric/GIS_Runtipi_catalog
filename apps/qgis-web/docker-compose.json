@@ -1,35 +1,22 @@
 {
-    "version": "3.7",
-    "services": {
-        "qgis-web": {
+    "services": [
+        {
+            "name": "qgis-web",
             "image": "lscr.io/linuxserver/qgis:latest",
-            "container_name": "qgis-web",
-            "restart": "unless-stopped",
-            "security_opt": [
-                "seccomp:unconfined"
-            ],
-            "ports": [
-                "${APP_PORT}:3000"
-            ],
-            "environment": [
-                "PUID=1000",
-                "PGID=1000",
-                "TZ=Etc/UTC",
-                "CUSTOM_USER=${KASM_USER}",
-                "PASSWORD=${KASM_PASSWORD}"
-            ],
+            "isMain": true,
+            "internalPort": "3000",
+            "environment": {
+                "PGID": "1000",
+                "TZ": "Etc/UTC",
+                "CUSTOM_USER": "${KASM_USER}",
+                "PASSWORD": "${KASM_PASSWORD}"
+            },
             "volumes": [
-                "${APP_DATA_DIR}/config:/config"
-            ],
-            "shm_size": "1gb",
-            "networks": [
-                "runtipi_network"
+                {
+                    "hostPath": "${APP_DATA_DIR}/config",
+                    "containerPath": "/config"
+                }
             ]
         }
-    },
-    "networks": {
-        "runtipi_network": {
-            "external": true
-        }
-    }
+    ]
 }
