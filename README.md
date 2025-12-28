@@ -1,31 +1,58 @@
-# Example App Store Template
+# Modern GIS Runtipi Catalog
 
-This repository serves as a template for creating your own custom app store for the Runtipi platform. Use this as a starting point to create and share your own collection of applications.
+A curated collection of production-ready Geospatial, AI, and Data tools for [Runtipi](https://runtipi.io/). 
 
-## Repository Structure
+This catalog allows you to deploy a complete **Modern GIS Stack** (PostGIS, GeoServer, QGIS, Mergin Maps, etc.) on your home server in minutes.
 
-- **apps/**: Contains individual app directories
+## 🌟 Included Applications
 
-  - Each app has its own folder (e.g., `whoami/`) with the following structure:
-    - `config.json`: App configuration file
-    - `docker-compose.json`: Docker setup for the app
-    - `metadata/`: Contains app visuals and descriptions
-      - `description.md`: Markdown description of the app
-      - `logo.jpg`: App logo image
+### 🛠 Core Infrastructure
+- **GIS PostGIS Engine**: The heart of the stack. PostgreSQL 16 + PostGIS 3.4 + pgvector.
+- **MinIO**: High-performance S3-compatible object storage for massive geospatial datasets.
 
-- **tests/**: Contains test files for the app store
+### 🗺️ Map Serving & Management
+- **GeoNode**: The ultimate open-source Geospatial CMS and SDI platform.
+- **GeoServer**: The industry standard OGC server for WFS/WMS/WCS.
+- **Martin Tile Server**: Blazing fast Vector Tiles directly from PostGIS.
+- **Lizmap Web Client**: Publish QGIS projects as feature-rich web maps.
+- **Mergin Maps CE**: Self-hosted server for the Mergin Maps mobile field collection app.
 
-  - `apps.test.ts`: Test suite for validating apps
+### 💻 Desktop & Analysis
+- **QGIS Web Desktop**: Full QGIS LTR running in your browser via KasmVNC.
+- **Geospatial Lab**: JupyterLab configured with Python, GeoPandas, and DuckDB.
+- **Potree Viewer**: WebGL-based viewer for massive point cloud rendered datasets.
 
-## Getting Started
+### 🤖 AI & Automation
+- **Geospatial AI Suite**: Private AI stack with AnythingLLM and Ollama (Llama 3, etc.).
+- **n8n Automation**: Workflow automation node-based tool.
+- **Vector Admin**: GUI for managing pgvector embeddings.
 
-This repository is intended to serve as a template for creating your own app store. Follow these steps to get started:
+### 📊 Data & APIs
+- **PostgREST**: Instantly turn your database schema into a RESTful API.
+- **Metabase**: Beautiful Business Intelligence dashboards and charts.
+- **CloudBeaver**: collaborative cloud database client.
+- **pgAdmin 4**: The most popular management tool for PostgreSQL.
 
-1. Click the "Use this template" button to create a new repository based on this template
-2. Customize the apps or add your own app folders in the `apps/` directory
-3. Test your app store by using it with Runtipi
+## 🚀 Installation
 
-## Documentation
+1.  Open your **Runtipi Dashboard**.
+2.  Go to **Settings** -> **App Store**.
+3.  Add Custom Catalog: `https://github.com/PappyEric/GIS_Runtipi_catalog` (or your specific URL).
+4.  Go to the **App Store** tab.
+5.  **Install `GIS PostGIS Engine` FIRST.**
+    *   Set your credentials securely.
+6.  Install other apps.
+    *   **Crucial**: When asked for `Postgres Host`, `User`, or `Password`, use the credentials you set in Step 5.
+    *   The internal hostname is `gis-postgres`.
 
-For detailed instructions on creating your own app store, please refer to the official guide:
-[Create Your Own App Store Guide](https://runtipi.io/docs/guides/create-your-own-app-store)
+## 🏗 Architecture
+
+This catalog follows a "Split-Stack" philosophy (Service Oriented Architecture):
+
+-   **Single Source of Truth**: All apps connect to the central `gis-postgres` database. We avoid bundling separate DBs inside each container.
+-   **Storage**: Heavy files (rasters, point clouds) should go to `minio` (S3).
+-   **Integration**: Apps like `n8n` or `postgrest` can act as glue between your map data and external services.
+
+## 🤝 Contributing
+
+Pull requests are welcome! If you have a favorite open-source GIS tool you'd like to see, please submit an issue or PR.

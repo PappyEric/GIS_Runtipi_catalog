@@ -2,7 +2,7 @@
     "name": "Lizmap Web Client",
     "id": "lizmap",
     "available": true,
-    "short_desc": "Create web maps from QGIS projects.",
+    "short_desc": "Publish QGIS projects to the web instantly.",
     "categories": [
         "utilities",
         "media"

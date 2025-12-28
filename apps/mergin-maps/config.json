@@ -2,7 +2,7 @@
     "name": "Mergin Maps CE",
     "id": "mergin-maps",
     "available": true,
-    "short_desc": "Self-hosted Mergin Maps server for field data collection.",
+    "short_desc": "Server for QGIS field data collection apps.",
     "categories": [
         "utilities",
         "data"

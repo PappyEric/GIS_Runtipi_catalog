@@ -2,7 +2,7 @@
     "name": "GIS PostGIS Engine",
     "id": "gis-postgres",
     "available": true,
-    "short_desc": "PostgreSQL 16 with PostGIS 3.4 and pgvector extensions.",
+    "short_desc": "The central PostGIS & Vector database for your stack.",
     "author": "Eric D",
     "categories": [
         "data",

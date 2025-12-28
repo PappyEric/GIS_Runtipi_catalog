@@ -1,12 +1,12 @@
-# Geospatial AI Suite
+# Geospatial AI Suite: Private LLMs for GIS
 
-Run your own private AI/LLM stack locally.
+**Geospatial AI Suite** is a self-hosted stack combining **Ollama** (for running local LLMs like Llama 3) and **AnythingLLM** (for RAG and chat interfaces).
 
-## Components
-- **Ollama**: The backend engine to run models like Llama 3, Mistral, etc.
-- **AnythingLLM**: The frontend chat interface with RAG (Retrieval Augmented Generation) capabilities.
+## Why use this?
+- **Privacy**: Run powerful AI models completely offline. No data is sent to OpenAI or Anthropic.
+- **RAG on Data**: Chat with your documents. Upload PDF reports, field manuals, or research papers and get answers with citations.
+- **Vector DB Ready**: Pre-configured to use `gis-postgres` (pgvector) as its knowledge base memory store.
 
-## Usage
-1. Open AnythingLLM.
-2. In settings, configure the "Local AI" provider to point to `http://ollama:11434`.
-3. Download models via the UI or CLI.
+## Quick Start
+- **First Run**: AnythingLLM will ask for a database connection. Use the `gis-postgres` credentials.
+- **Model Download**: Use the AnythingLLM interface to download models (`llama3`, `mistral`, etc.) directly into Ollama.

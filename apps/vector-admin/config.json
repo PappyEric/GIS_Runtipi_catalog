@@ -2,7 +2,7 @@
     "name": "Vector Admin",
     "id": "vector-admin",
     "available": true,
-    "short_desc": "GUI for managing pgvector embeddings.",
+    "short_desc": "GUI for managing pgvector embeddings and RAG data.",
     "author": "Eric D",
     "categories": [
         "utilities",

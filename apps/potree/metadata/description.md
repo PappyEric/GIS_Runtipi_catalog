@@ -1,10 +1,12 @@
-# Potree 3D Viewer
+# Potree 3D Viewer: Massive Point Clouds
 
-A simple, optimized web server for hosting Potree point cloud datasets.
+**Potree** is a WebGL-based viewer for massive point cloud datasets. It can render billions of points in the browser with high performance.
 
-## How to use
-1. Convert your LAS/LAZ files using `PotreeConverter` (desktop tool).
-2. Copy the resulting folder (containing `cloud.js` or `metadata.json`) to the app's data directory.
-3. Access this URL to view your point clouds.
+## Why use this?
+- **Lidar Visualization**: View LAS/LAZ files from drone surveys or aerial scans.
+- **Measurements**: Perform precise measurements (distance, height, area, volume) directly in the 3D view.
+- **No Plugins**: Runs in any modern browser without installing software.
 
-*Note: This is a static host.*
+## Usage
+- **Data**: Place your converted point cloud data (using [PotreeConverter](https://github.com/potree/PotreeConverter)) into the data volume.
+- **Customization**: Edit the HTML file to point to your new cloud `cloud.js`.

@@ -2,7 +2,7 @@
     "name": "pgAdmin 4",
     "id": "pgadmin",
     "available": true,
-    "short_desc": "Administration and management tool for PostgreSQL.",
+    "short_desc": "The standard GUI for PostgreSQL management.",
     "categories": [
         "utilities",
         "development"

@@ -1,9 +1,12 @@
-# Mergin Maps CE
+# Mergin Maps CE: Field Data Collection
 
-Mergin Maps Server allows you to sync QGIS projects for field data collection.
+**Mergin Maps Community Edition** is the self-hosted server for the Mergin Maps ecosystem. It allows you to synchronize QGIS projects with mobile devices (iOS/Android) for offline field data collection.
 
+## Why use this?
+- **Offline Sync**: Collect GPS points, lines, and photos in the field without internet, then sync when back online.
+- **QGIS Plugin**: Push/Pull changes directly from QGIS Desktop using the Mergin plugin.
+- **Version Control**: Built-in diff viewer to see who changed what and when.
 
-## Important Note
-This is the **Community Edition**. It requires significant configuration (DNS, MinIO/S3, etc) to work fully. This app is provided as a starting point.
-
-**Storage**: By default, this app uses a local Docker volume (`data`) for storage. For production use with large files (photos), you should configure an external MinIO/S3 bucket in the app settings or env vars.
+## Critical Configuration
+- **DNS**: This app **requires** a valid public domain or accessible internal DNS to work with mobile apps.
+- **Storage**: By default uses local Docker volumes. For production, configuring `MinIO` (S3) is highly recommended.

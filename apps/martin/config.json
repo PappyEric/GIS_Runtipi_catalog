@@ -2,7 +2,7 @@
     "name": "Martin Tile Server",
     "id": "martin",
     "available": true,
-    "short_desc": "Blazing fast PostGIS vector tile server.",
+    "short_desc": "Ultra-fast PostGIS vector tile server (Rust).",
     "author": "Eric D",
     "categories": [
         "utilities",

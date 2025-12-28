@@ -2,7 +2,7 @@
     "name": "n8n Automation",
     "id": "n8n",
     "available": true,
-    "short_desc": "Workflow automation tool.",
+    "short_desc": "Powerful workflow automation tool (ETL pipelines).",
     "author": "Eric D",
     "categories": [
         "utilities",

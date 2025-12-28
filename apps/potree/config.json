@@ -2,7 +2,7 @@
     "name": "Potree 3D Viewer",
     "id": "potree",
     "available": true,
-    "short_desc": "Web-based large point cloud renderer.",
+    "short_desc": "WebGL viewer for massive 3D point clouds (Lidar).",
     "author": "Eric D",
     "categories": [
         "utilities",

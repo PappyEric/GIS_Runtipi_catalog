@@ -1,11 +1,12 @@
-# Vector Admin
+# Vector Admin: Manage Embeddings
 
-A specialized GUI for managing `pgvector` datasets in PostgreSQL.
+**Vector Admin** is a lightweight GUI for managing your vector database. It is specifically designed to work with `pgvector` and RAG applications.
 
-## Features
-- Inspect vector dimensions and data
-- Perform similarity searches visually
-- Manage collections
+## Why use this?
+- **Visualize Embeddings**: See what your vector data looks like.
+- **Debug RAG**: Verify that AnythingLLM is actually storing documents correctly in `gis-postgres`.
+- **User Management**: Simple interface for managing database users.
 
-## Connectivity
-Automatically configured to connect to your `gis-postgres` instance.
+## Quick Start
+- **Connect**: Use `gis-postgres` as the host.
+- **Port**: 3001.

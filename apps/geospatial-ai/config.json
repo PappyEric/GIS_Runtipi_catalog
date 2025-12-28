@@ -2,7 +2,7 @@
     "name": "Geospatial AI Suite",
     "id": "geospatial-ai",
     "available": true,
-    "short_desc": "Private AI stack with Ollama and AnythingLLM.",
+    "short_desc": "Private LLM stack (Ollama + AnythingLLM) connected to pgvector.",
     "categories": [
         "utilities",
         "media"

@@ -2,7 +2,7 @@
     "name": "CloudBeaver",
     "id": "cloudbeaver",
     "available": true,
-    "short_desc": "Cloud Database Manager for PostgreSQL and more.",
+    "short_desc": "Lightweight, universal web database client.",
     "categories": [
         "utilities",
         "development"
