@@ -11,7 +11,6 @@
     "port": 3000,
     "version": "latest",
     "tipi_version": 2,
-    "description": "Automatically generates a RESTful API from your PostgreSQL schema. Ideal for building web apps on top of PostGIS without custom backend code.",
     "source": "https://postgrest.org/",
     "exposable": true,
     "supported_architectures": [

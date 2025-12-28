@@ -2,7 +2,7 @@
     "services": [
         {
             "name": "gis-postgres",
-            "image": "joshuasundance-swca/postgis_pgvector:16-3.4",
+            "image": "postgis/postgis:16-3.4",
             "isMain": true,
             "internalPort": "5432",
             "environment": {

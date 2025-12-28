@@ -11,7 +11,6 @@
     "port": 8080,
     "version": "latest",
     "tipi_version": 2,
-    "description": "Publish and share geospatial data using open standards (OGC). Connects to PostGIS to serve WMS (Maps), WFS (Features), and WCS (Coverages).",
     "source": "http://geoserver.org/",
     "exposable": true,
     "supported_architectures": [

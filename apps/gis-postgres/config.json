@@ -11,8 +11,7 @@
     "port": 5432,
     "version": "16-3.4",
     "tipi_version": 2,
-    "description": "Core spatial database engine with PostGIS and pgvector support. Based on joshuasundance-swca/postgis_pgvector image.",
-    "source": "https://github.com/joshuasundance-swca/docker-postgis-pgvector",
+    "source": "https://registry.hub.docker.com/r/postgis/postgis/",
     "exposable": false,
     "supported_architectures": [
         "amd64",

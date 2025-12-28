@@ -11,7 +11,6 @@
     "port": 80,
     "version": "4.2.0",
     "tipi_version": 2,
-    "description": "The ultimate platform for SDI. Manage, share, and visualize geospatial data with granular permission control and collaboration tools.",
     "source": "https://geonode.org/",
     "exposable": true,
     "form_fields": [

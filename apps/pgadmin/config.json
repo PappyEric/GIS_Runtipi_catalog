@@ -10,7 +10,6 @@
     "port": 80,
     "version": "latest",
     "tipi_version": 2,
-    "description": "PostgreSQL database management tool.",
     "author": "Eric D",
     "source": "https://www.pgadmin.org/",
     "exposable": true,

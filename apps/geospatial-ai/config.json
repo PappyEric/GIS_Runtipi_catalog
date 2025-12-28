@@ -10,7 +10,6 @@
     "port": 3001,
     "version": "1.0.0",
     "tipi_version": 2,
-    "description": "A suite of AI tools for geospatial analysis including AnythingLLM and Ollama.",
     "author": "Eric D",
     "source": "https://github.com/Mintplex-Labs/anything-llm",
     "exposable": true,

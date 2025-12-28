@@ -10,7 +10,6 @@
     "port": 8080,
     "version": "3.8.3",
     "tipi_version": 2,
-    "description": "Web client for QGIS Server.",
     "author": "Eric D",
     "source": "https://github.com/3liz/lizmap-web-client",
     "exposable": true,

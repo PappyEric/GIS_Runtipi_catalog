@@ -10,7 +10,6 @@
     "port": 8978,
     "version": "latest",
     "tipi_version": 2,
-    "description": "CloudBeaver is a web-based database management tool.",
     "author": "Eric D",
     "source": "https://github.com/dbeaver/cloudbeaver",
     "exposable": true,

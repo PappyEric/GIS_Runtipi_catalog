@@ -3,7 +3,6 @@
     "id": "qgis-web",
     "available": true,
     "short_desc": "Full QGIS Desktop running in your browser.",
-    "description": "Full QGIS Desktop running in a browser via KasmVNC.",
     "author": "Eric D",
     "categories": [
         "utilities",
