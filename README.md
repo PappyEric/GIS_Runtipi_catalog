@@ -30,7 +30,7 @@ This catalog allows you to deploy a complete **Modern GIS Stack** (PostGIS, GeoS
 ### 📊 Data & APIs
 - **PostgREST**: Instantly turn your database schema into a RESTful API.
 - **Metabase**: Beautiful Business Intelligence dashboards and charts.
-- **CloudBeaver**: collaborative cloud database client.
+- **CloudBeaver**: Collaborative cloud database client.
 - **pgAdmin 4**: The most popular management tool for PostgreSQL.
 
 ## 🚀 Installation
