@@ -2,7 +2,7 @@
 
 A curated collection of production-ready Geospatial, AI, and Data tools for [Runtipi](https://runtipi.io/). 
 
-This catalog allows you to deploy a complete **Modern GIS Stack** (PostGIS, GeoServer, QGIS, Mergin Maps, etc.) on your home server in minutes.
+This catalog allows you to deploy a complete **Modern GIS Stack** (PostGIS, GeoServer, QGIS, Mergin Maps, etc.) on your self-hosted server in minutes.
 
 ## 🌟 Included Applications
 
