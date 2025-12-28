@@ -7,7 +7,7 @@
         "utilities",
         "development"
     ],
-    "port": 80,
+    "port": 8003,
     "version": "latest",
     "tipi_version": 2,
     "author": "Eric D",

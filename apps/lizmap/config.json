@@ -7,7 +7,7 @@
         "utilities",
         "media"
     ],
-    "port": 8080,
+    "port": 8082,
     "version": "3.8.3",
     "tipi_version": 2,
     "author": "Eric D",

@@ -8,7 +8,7 @@
         "utilities",
         "media"
     ],
-    "port": 80,
+    "port": 8004,
     "version": "latest",
     "tipi_version": 2,
     "source": "https://github.com/potree/potree",

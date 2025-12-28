@@ -1,0 +1,17 @@
+cloudbeaver: 8978
+geonode: 80
+geoserver: 8080
+geospatial-ai: 3001
+geospatial-lab: 8888
+gis-postgres: 5432
+lizmap: 8080
+martin: 3000
+mergin-maps: 80
+metabase: 3000
+minio: 9001
+n8n: 5678
+pgadmin: 80
+postgrest: 3000
+potree: 80
+qgis-web: 3000
+vector-admin: 3001
