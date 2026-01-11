@@ -34,7 +34,6 @@
                 "LIZMAP_USER_ID": "33",
                 "LIZMAP_GROUP_ID": "33"
             },
-            "user": "33:33",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/projects",
