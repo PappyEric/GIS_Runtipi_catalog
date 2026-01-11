@@ -13,7 +13,7 @@
                 {
                     "hostPath": "${APP_DATA_DIR}/projects",
                     "containerPath": "/www/lizmap/project-home"
-                },
+                }
             ],
             "depends_on": [
                 "qgis-server",
