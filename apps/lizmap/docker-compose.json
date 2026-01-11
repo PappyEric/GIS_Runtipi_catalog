@@ -3,7 +3,7 @@
         {
             "name": "lizmap-init",
             "image": "busybox",
-            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log && chown -R 33:33 /www/lizmap/var'",
+            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 33:33 /www/lizmap/var /www/lizmap/www'",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/var/db",
@@ -16,6 +16,10 @@
                 {
                     "hostPath": "${APP_DATA_DIR}/var/log",
                     "containerPath": "/www/lizmap/var/log"
+                },
+                {
+                    "hostPath": "${APP_DATA_DIR}/www",
+                    "containerPath": "/www/lizmap/www"
                 }
             ]
         },
@@ -27,12 +31,18 @@
             "environment": {
                 "LIZMAP_QGIS_SERVER_URL": "http://qgis-server:5555/fcgi-bin/qgis_mapserv.fcgi",
                 "LIZMAP_REDIS_HOST": "redis",
-                "LIZMAP_HOME": "/www/lizmap"
+                "LIZMAP_USER_ID": "33",
+                "LIZMAP_GROUP_ID": "33"
             },
+            "user": "33:33",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/projects",
                     "containerPath": "/www/lizmap/project-home"
+                },
+                {
+                    "hostPath": "${APP_DATA_DIR}/www",
+                    "containerPath": "/www/lizmap/www"
                 },
                 {
                     "hostPath": "${APP_DATA_DIR}/var/db",
