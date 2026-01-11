@@ -29,7 +29,7 @@
             "type": "text",
             "env_variable": "DB_USER",
             "label": "Postgres User",
-            "default": "tipi",
+            "default": "postgres",
             "required": true
         },
         {

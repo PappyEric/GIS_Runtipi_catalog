@@ -13,6 +13,10 @@
     "tipi_version": 2,
     "source": "https://geonode.org/",
     "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
     "form_fields": [
         {
             "type": "text",
@@ -25,7 +29,7 @@
             "type": "text",
             "env_variable": "DB_USER",
             "label": "Postgres User",
-            "default": "tipi",
+            "default": "postgres",
             "required": true
         },
         {

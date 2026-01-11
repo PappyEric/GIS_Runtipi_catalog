@@ -19,13 +19,6 @@
     ],
     "form_fields": [
         {
-            "type": "text",
-            "env_variable": "POSTGRES_USER",
-            "label": "Database User",
-            "default": "tipi",
-            "required": true
-        },
-        {
             "type": "password",
             "env_variable": "POSTGRES_PASSWORD",
             "label": "Database Password",

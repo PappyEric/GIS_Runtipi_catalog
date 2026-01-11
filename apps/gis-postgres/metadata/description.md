@@ -11,7 +11,7 @@
 - **Internal Hostname**: `gis-postgres` (use this when connecting other Runtipi apps).
 - **Port**: `5433`
 - **Default Credentials**: 
-    - **User**: `tipi`
-    - **Password**: `password` (or check `config.json` default)
+    - **User**: `postgres` (Hardcoded)
+    - **Password**: `postgisadmin` (Hardcoded)
     - **Database**: `gis`
 - **Recommended**: Install this app **first** before deploying any dependent services.

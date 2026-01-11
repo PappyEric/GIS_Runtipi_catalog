@@ -22,7 +22,7 @@
             "type": "text",
             "env_variable": "DATABASE_URL",
             "label": "Database Connection String",
-            "default": "postgresql://tipi:password@gis-postgres:5433/gis",
+            "default": "postgresql://postgres:postgisadmin@gis-postgres:5433/gis",
             "required": true
         }
     ]

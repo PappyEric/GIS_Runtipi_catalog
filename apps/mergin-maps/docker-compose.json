@@ -8,8 +8,8 @@
             "environment": {
                 "DB_host": "gis-postgres",
                 "DB_port": "5433",
-                "DB_user": "tipi",
-                "DB_pass": "password"
+                "DB_user": "postgres",
+                "DB_pass": "postgisadmin"
             },
             "volumes": [
                 {

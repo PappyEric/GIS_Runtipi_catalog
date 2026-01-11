@@ -8,8 +8,8 @@
             "environment": {
                 "PG_HOST": "gis-postgres",
                 "PG_PORT": "5433",
-                "PG_USER": "tipi",
-                "PG_PASS": "password",
+                "PG_USER": "postgres",
+                "PG_PASS": "postgisadmin",
                 "PG_DB": "gis"
             }
         }
