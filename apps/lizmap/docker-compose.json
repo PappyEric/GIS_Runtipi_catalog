@@ -2,8 +2,8 @@
     "services": [
         {
             "name": "lizmap-init",
-            "image": "busybox",
-            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www /srv/plugins && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www /srv/plugins && echo \"Permissions fixed, sleeping...\" && sleep infinity'",
+            "image": "alpine:latest",
+            "command": "sh -c 'mkdir -p /srv/plugins /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www; if [ ! -f /srv/plugins/lizmap_server/metadata.txt ]; then echo \"Installing Lizmap server plugin...\"; apk add --no-cache wget unzip; wget -q -O /tmp/plugin.zip https://github.com/3liz/qgis-lizmap-server-plugin/archive/refs/heads/master.zip; unzip -o /tmp/plugin.zip -d /tmp/; rm -rf /srv/plugins/lizmap_server; mv /tmp/qgis-lizmap-server-plugin-master /srv/plugins/lizmap_server; fi; chown -R 1000:1000 /srv/plugins /www/lizmap/var /www/lizmap/www; chmod -R 775 /srv/plugins /www/lizmap/var; echo \"Init complete, sleeping...\"; sleep infinity'",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/var/db",
@@ -48,11 +48,12 @@
             "image": "3liz/lizmap-web-client:3.8",
             "environment": {
                 "LIZMAP_WMSSERVERURL": "http://qgis-server:8080/ows/",
-                "LIZMAP_CACHEREDISHOST": "redis",
+                "LIZMAP_CACHERREDISHOST": "redis",
                 "LIZMAP_CACHESTORAGETYPE": "redis",
                 "LIZMAP_CACHEREDISDB": "1",
                 "LIZMAP_HOME": "/www/lizmap",
-                "LIZMAP_USER": "1000"
+                "LIZMAP_USER": "1000",
+                "LIZMAP_GID": "1000"
             },
             "volumes": [
                 {
@@ -87,14 +88,12 @@
             "image": "3liz/qgis-map-server:3.34",
             "environment": {
                 "QGSRV_SERVER_WORKERS": "4",
-                "QGIS_SERVER_LOG_LEVEL": "0",
+                "QGSRV_LOGGING_LEVEL": "DEBUG",
                 "QGIS_SERVER_LIZMAP_REVEAL_SETTINGS": "yes",
                 "QGSRV_API_ENABLED_LIZMAP": "yes",
                 "QGSRV_SERVER_PLUGINPATH": "/srv/plugins",
+                "QGIS_PLUGINPATH": "/srv/plugins",
                 "QGSRV_CACHE_ROOTDIR": "/srv/projects",
-                "QGIS_SERVER_TRUST_LAYER_METADATA": "True",
-                "QGIS_SERVER_FORCE_READONLY_LAYERS": "True",
-                "QGSRV_LOGGING_LEVEL": "INFO",
                 "QGSRV_USER": "1000:1000"
             },
             "volumes": [
@@ -113,7 +112,7 @@
         },
         {
             "name": "redis",
-            "image": "redis:8-alpine"
+            "image": "redis:alpine"
         }
     ]
 }
