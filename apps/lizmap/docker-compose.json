@@ -4,6 +4,17 @@
             "name": "lizmap-init",
             "image": "busybox",
             "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && sh /generate_nginx_conf.sh && echo \"Permissions fixed, sleeping...\" && sleep infinity'",
+            "healthcheck": {
+                "test": [
+                    "CMD",
+                    "test",
+                    "-f",
+                    "/www/lizmap/var/config/default.conf"
+                ],
+                "interval": "5s",
+                "timeout": "5s",
+                "retries": 5
+            },
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/var/db",
@@ -45,6 +56,9 @@
             "depends_on": {
                 "lizmap": {
                     "condition": "service_started"
+                },
+                "lizmap-init": {
+                    "condition": "service_healthy"
                 }
             }
         },
