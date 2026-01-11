@@ -3,7 +3,7 @@
         {
             "name": "lizmap-init",
             "image": "busybox",
-            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && cp /generate_nginx_conf.sh /tmp/gen.sh && sed -i \"s/\\r$//\" /tmp/gen.sh && sh /tmp/gen.sh && echo \"Permissions fixed, sleeping...\" && sleep infinity'",
+            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && echo \"server {\" > /www/lizmap/var/config/default.conf && echo \"    listen 80;\" >> /www/lizmap/var/config/default.conf && echo \"    server_name _;\" >> /www/lizmap/var/config/default.conf && echo \"    root /www/lizmap/www;\" >> /www/lizmap/var/config/default.conf && echo \"    index index.php index.html;\" >> /www/lizmap/var/config/default.conf && echo \"    client_max_body_size 100M;\" >> /www/lizmap/var/config/default.conf && echo \"    fastcgi_read_timeout 300;\" >> /www/lizmap/var/config/default.conf && echo \"    location / {\" >> /www/lizmap/var/config/default.conf && echo \"        try_files \\$uri \\$uri/ /index.php\\$is_args\\$args;\" >> /www/lizmap/var/config/default.conf && echo \"    }\" >> /www/lizmap/var/config/default.conf && echo \"    location ~ \\.php$ {\" >> /www/lizmap/var/config/default.conf && echo \"        fastcgi_split_path_info ^(.+\\.php)(/.+)$;\" >> /www/lizmap/var/config/default.conf && echo \"        fastcgi_pass lizmap:9000;\" >> /www/lizmap/var/config/default.conf && echo \"        fastcgi_index index.php;\" >> /www/lizmap/var/config/default.conf && echo \"        include fastcgi_params;\" >> /www/lizmap/var/config/default.conf && echo \"        fastcgi_param SCRIPT_FILENAME \\$document_root\\$fastcgi_script_name;\" >> /www/lizmap/var/config/default.conf && echo \"        fastcgi_param PATH_INFO \\$fastcgi_path_info;\" >> /www/lizmap/var/config/default.conf && echo \"    }\" >> /www/lizmap/var/config/default.conf && echo \"}\" >> /www/lizmap/var/config/default.conf && chmod 644 /www/lizmap/var/config/default.conf && echo \"Config generated, sleeping...\" && sleep infinity'",
             "healthcheck": {
                 "test": [
                     "CMD",
@@ -31,10 +31,6 @@
                 {
                     "hostPath": "${APP_DATA_DIR}/www",
                     "containerPath": "/www/lizmap/www"
-                },
-                {
-                    "hostPath": "./scripts/generate_nginx_conf.sh",
-                    "containerPath": "/generate_nginx_conf.sh"
                 }
             ]
         },
