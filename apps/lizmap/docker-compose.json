@@ -1,20 +1,9 @@
 {
     "services": [
         {
-            "name": "lizmap-plugin-init",
-            "image": "alpine:latest",
-            "command": "sh -c 'apk add --no-cache wget unzip && rm -rf /tmp/qgis-lizmap-server-plugin-master && wget -O /tmp/lizmap.zip https://github.com/3liz/qgis-lizmap-server-plugin/archive/refs/heads/master.zip && unzip -o /tmp/lizmap.zip -d /tmp/ && mkdir -p /srv/plugins/lizmap_server && cp -r /tmp/qgis-lizmap-server-plugin-master/* /srv/plugins/lizmap_server/ && chmod -R 777 /srv/plugins && echo \"Lizmap plugin installed successfully\"'",
-            "volumes": [
-                {
-                    "hostPath": "${APP_DATA_DIR}/plugins",
-                    "containerPath": "/srv/plugins"
-                }
-            ]
-        },
-        {
             "name": "lizmap-init",
             "image": "busybox",
-            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && echo \"Permissions fixed\"'",
+            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www /srv/plugins && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www /srv/plugins && echo \"Permissions fixed, sleeping...\" && sleep infinity'",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/var/db",
@@ -31,6 +20,10 @@
                 {
                     "hostPath": "${APP_DATA_DIR}/www",
                     "containerPath": "/www/lizmap/www"
+                },
+                {
+                    "hostPath": "${APP_DATA_DIR}/plugins",
+                    "containerPath": "/srv/plugins"
                 }
             ]
         },
@@ -115,7 +108,7 @@
                 }
             ],
             "depends_on": [
-                "lizmap-plugin-init"
+                "lizmap-init"
             ]
         },
         {
