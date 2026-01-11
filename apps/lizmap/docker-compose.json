@@ -1,12 +1,9 @@
 {
     "services": [
         {
-            "name": "lizmap-config",
-            "image": "3liz/qgis-map-server:3.34",
-            "command": "sh -c 'qgis-plugin-manager init && qgis-plugin-manager update && qgis-plugin-manager install \"Lizmap server\" && qgis-plugin-manager install atlasprint && qgis-plugin-manager install wfsOutputExtension && echo \"Plugins installed successfully\"'",
-            "environment": {
-                "QGSRV_SERVER_PLUGINPATH": "/srv/plugins"
-            },
+            "name": "lizmap-plugin-init",
+            "image": "alpine:latest",
+            "command": "sh -c 'apk add --no-cache wget unzip && wget -O /tmp/lizmap.zip https://github.com/3liz/qgis-lizmap-server-plugin/archive/refs/heads/master.zip && unzip /tmp/lizmap.zip -d /tmp/ && mkdir -p /srv/plugins/lizmap_server && cp -r /tmp/qgis-lizmap-server-plugin-master/* /srv/plugins/lizmap_server/ && chmod -R 777 /srv/plugins && echo \"Lizmap plugin installed successfully\"'",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/plugins",
@@ -118,7 +115,7 @@
                 }
             ],
             "depends_on": [
-                "lizmap-config"
+                "lizmap-plugin-init"
             ]
         },
         {
