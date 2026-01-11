@@ -86,15 +86,16 @@
         },
         {
             "name": "qgis-server",
-            "image": "qgis/qgis-server:latest",
+            "image": "3liz/qgis-map-server:3.34",
             "environment": {
-                "QGIS_SERVER_LOG_STDERR": "1",
-                "QGIS_SERVER_LANDING_PAGE_PROJECT": "/data/landing.qgs"
+                "QGSRV_SERVER_WORKERS": "4",
+                "QGIS_SERVER_LANDING_PAGE_PROJECT": "/io/data/landing.qgs",
+                "QGIS_SERVER_LOG_LEVEL": "0"
             },
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/projects",
-                    "containerPath": "/data"
+                    "containerPath": "/io/data"
                 }
             ]
         },
