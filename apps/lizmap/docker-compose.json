@@ -90,7 +90,8 @@
             "environment": {
                 "QGSRV_SERVER_WORKERS": "4",
                 "QGIS_SERVER_LANDING_PAGE_PROJECT": "/io/data/landing.qgs",
-                "QGIS_SERVER_LOG_LEVEL": "0"
+                "QGIS_SERVER_LOG_LEVEL": "0",
+                "QGIS_SERVER_LIZMAP_REVEAL_SETTINGS": "1"
             },
             "volumes": [
                 {
