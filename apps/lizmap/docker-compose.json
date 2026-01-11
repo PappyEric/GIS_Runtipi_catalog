@@ -3,18 +3,7 @@
         {
             "name": "lizmap-init",
             "image": "busybox",
-            "command": "sh -c 'rm -f /www/lizmap/var/config/default.conf && mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && echo \"c2VydmVyIHsgbGlzdGVuIDgwOyBzZXJ2ZXJfbmFtZSBfOyByb290IC93d3cvbGl6bWFwL3d3dzsgaW5kZXggaW5kZXgucGhwIGluZGV4Lmh0bWw7IGNsaWVudF9tYXhfYm9keV9zaXplIDEwME07IGZhc3RjZ2lfcmVhZF90aW1lb3V0IDMwMDsgbG9jYXRpb24gLyB7IHRyeV9maWxlcyBcJHVyaSBcJHVyaS8gL2luZGV4LnBocFwkaXNfYXJnc1wkYXJnczsgfSBsb2NhdGlvbiB+IFwucGhwJCB7IGZhc3RjZ2lfc3BsaXRfcGF0aF9pbmZvIF4oLd4cC5waHApKC8uKykkOyBmYXN0Y2dpX3Bhc3MgbGl6bWFwOjkwMDA7IGZhc3RjZ2lfaW5kZXggaW5kZXgucGhwOyBpbmNsdWRlIGZhc3RjZ2lfcGFyYW1zOyBmYXN0Y2dpX3BhcmFtIFNDUklQVF9GSUxFTkFNRSBcJGRvY3VtZW50X3Jvb3RcJGZhc3RjZ2lfc2NyaXB0X25hbWU7IGZhc3RjZ2lfcGFyYW0gUEFUSF9JTkZPIFwkZmFzdGNnaV9wYXRoX2luZm87IH0gfQ==\" | base64 -d > /www/lizmap/var/config/default.conf && chmod 644 /www/lizmap/var/config/default.conf && echo \"Config generated, sleeping...\" && sleep infinity'",
-            "healthcheck": {
-                "test": [
-                    "CMD",
-                    "test",
-                    "-f",
-                    "/www/lizmap/var/config/default.conf"
-                ],
-                "interval": "5s",
-                "timeout": "5s",
-                "retries": 5
-            },
+            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && echo \"Permissions fixed, sleeping...\" && sleep infinity'",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/var/db",
@@ -39,11 +28,8 @@
             "image": "nginx:alpine",
             "isMain": true,
             "internalPort": "80",
+            "command": "/bin/sh -c \"printf 'server {\\n    listen 80;\\n    server_name _;\\n    root /www/lizmap/www;\\n    index index.php index.html;\\n    client_max_body_size 100M;\\n    fastcgi_read_timeout 300;\\n    location / {\\n        try_files $uri $uri/ /index.php$is_args$args;\\n    }\\n    location ~ \\\\.php$ {\\n        fastcgi_split_path_info ^(.+\\\\.php)(/.+)$;\\n        fastcgi_pass lizmap:9000;\\n        fastcgi_index index.php;\\n        include fastcgi_params;\\n        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;\\n        fastcgi_param PATH_INFO $fastcgi_path_info;\\n    }\\n}' > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'\"",
             "volumes": [
-                {
-                    "hostPath": "${APP_DATA_DIR}/var/config",
-                    "containerPath": "/etc/nginx/conf.d"
-                },
                 {
                     "hostPath": "${APP_DATA_DIR}/www",
                     "containerPath": "/www/lizmap/www"
@@ -52,9 +38,6 @@
             "depends_on": {
                 "lizmap": {
                     "condition": "service_started"
-                },
-                "lizmap-init": {
-                    "condition": "service_healthy"
                 }
             }
         },
