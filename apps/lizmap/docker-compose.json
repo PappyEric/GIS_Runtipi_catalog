@@ -30,9 +30,7 @@
             "internalPort": "8080",
             "environment": {
                 "LIZMAP_QGIS_SERVER_URL": "http://qgis-server:5555/fcgi-bin/qgis_mapserv.fcgi",
-                "LIZMAP_REDIS_HOST": "redis",
-                "LIZMAP_USER_ID": "33",
-                "LIZMAP_GROUP_ID": "33"
+                "LIZMAP_REDIS_HOST": "redis"
             },
             "volumes": [
                 {
