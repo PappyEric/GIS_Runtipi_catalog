@@ -15,8 +15,16 @@
                     "containerPath": "/www/lizmap/project-home"
                 },
                 {
-                    "hostPath": "${APP_DATA_DIR}/var",
-                    "containerPath": "/www/lizmap/var"
+                    "hostPath": "${APP_DATA_DIR}/var/db",
+                    "containerPath": "/www/lizmap/var/db"
+                },
+                {
+                    "hostPath": "${APP_DATA_DIR}/var/config",
+                    "containerPath": "/www/lizmap/var/config"
+                },
+                {
+                    "hostPath": "${APP_DATA_DIR}/var/log",
+                    "containerPath": "/www/lizmap/var/log"
                 }
             ],
             "depends_on": [
