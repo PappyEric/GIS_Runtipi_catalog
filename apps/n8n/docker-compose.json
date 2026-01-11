@@ -10,7 +10,7 @@
                 "TZ": "America/New_York",
                 "DB_TYPE": "postgresdb",
                 "DB_POSTGRESDB_HOST": "${DB_POSTGRESDB_HOST}",
-                "DB_POSTGRESDB_PORT": "5432",
+                "DB_POSTGRESDB_PORT": "5433",
                 "DB_POSTGRESDB_DATABASE": "${DB_POSTGRESDB_DATABASE}",
                 "DB_POSTGRESDB_USER": "${DB_POSTGRESDB_USER}",
                 "DB_POSTGRESDB_PASSWORD": "${DB_POSTGRESDB_PASSWORD}"

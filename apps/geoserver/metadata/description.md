@@ -7,5 +7,9 @@
 - **Advanced Styling**: Use SLD (Styled Layer Descriptor) or CSS to create complex, scale-dependent map styles.
 - **Vector Tiles**: Serves high-performance Vector Tiles for modern web maps.
 
+## Default Credentials
+- **User**: `admin`
+- **Password**: (Set during installation)
+
 ## Integration
 This is a standalone instance. It is separate from the bundled GeoNode-GeoServer. Use this if you want a pure, unopinionated OGC server connected to `gis-postgres`.

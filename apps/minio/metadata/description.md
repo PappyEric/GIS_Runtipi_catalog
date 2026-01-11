@@ -8,5 +8,7 @@
 - **Universal Access**: Use standard tools like `rclone`, `boto3`, or `Cyberduck` to manage your files.
 
 ## Access
-- **Console**: Log in to the web console on port **9001** (default user/pass set during install).
+- **Console**: Log in to the web console on port **9001**.
+- **User**: `minioadmin` (Default)
+- **Password**: `minioadmin` (Default)
 - **API Endpoint**: Internal apps connect via `http://minio:9000`.

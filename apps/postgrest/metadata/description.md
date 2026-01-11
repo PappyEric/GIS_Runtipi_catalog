@@ -7,6 +7,9 @@
 - **Auto-Generated**: It reads your database schema and automatically creates endpoints for tables, views, and stored procedures.
 - **GeoJSON Support**: Since you have PostGIS extensions enabled, PostgREST serves your spatial data as standard GeoJSON, making it instantly consumable by Leaflet, OpenLayers, or MapLibre.
 
+## Authentication
+- **None**: This is a public API by default (unless behind a proxy).
+
 ## Quick Start
 Your API is running securely on port **3000**.
 - **Endpoint**: `http://postgrest:3000`

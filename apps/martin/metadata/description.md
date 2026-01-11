@@ -7,6 +7,9 @@
 - **Dynamic**: No need to "seed" a cache. Changes to the database are reflected instantly on the map.
 - **Function Support**: Can serve the results of complex PostGIS functions (e.g. `get_fire_risk_zones(date)`) as a tile layer.
 
+## Authentication
+- **None**: This is a public API by default (unless behind a proxy).
+
 ## Quick Start
 - **Auto-Discovery**: Martin automatically finds tables with geometry/geography columns in `gis-postgres`.
 - **Endpoint**: `http://martin:3000`

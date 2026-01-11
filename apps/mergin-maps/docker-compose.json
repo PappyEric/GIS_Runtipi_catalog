@@ -7,7 +7,7 @@
             "internalPort": "80",
             "environment": {
                 "DB_host": "gis-postgres",
-                "DB_port": "5432",
+                "DB_port": "5433",
                 "DB_user": "tipi",
                 "DB_pass": "password"
             },

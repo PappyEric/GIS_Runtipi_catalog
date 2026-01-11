@@ -10,4 +10,4 @@
 
 ## Quick Start
 - **Login**: Log in with the `cbadmin` credentials you set.
-- **Connect**: Create a new connection to `gis-postgres` (Port 5432).
+- **Connect**: Create a new connection to `gis-postgres` (Port 5433).

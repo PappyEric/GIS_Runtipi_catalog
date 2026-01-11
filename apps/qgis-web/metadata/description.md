@@ -9,5 +9,6 @@
 
 ## Quick Start
 - **Access**: Uses **KasmVNC** for a smooth, high-fidelity experience.
-- **Login**: `kasm_user` / `password` (or whatever you configured).
+- **Login**: `kasm_user` (Default)
+- **Password**: (Set during installation)
 - **GPU**: Supports hardware acceleration if your server allows it.

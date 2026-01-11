@@ -10,7 +10,7 @@
                 "OLLAMA_BASE_URL": "http://ollama:11434",
                 "DB_provider": "postgres",
                 "DB_host": "${DB_HOST}",
-                "DB_port": "5432",
+                "DB_port": "5433",
                 "DB_user": "${DB_USER}",
                 "DB_password": "${DB_PASSWORD}",
                 "DB_database": "${DB_NAME}"

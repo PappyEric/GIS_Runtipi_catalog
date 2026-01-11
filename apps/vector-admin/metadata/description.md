@@ -7,6 +7,10 @@
 - **Debug RAG**: Verify that AnythingLLM is actually storing documents correctly in `gis-postgres`.
 - **User Management**: Simple interface for managing database users.
 
+## Authentication
+- **User**: (Setup on first run)
+- **Password**: (Setup on first run)
+
 ## Quick Start
 - **Connect**: Use `gis-postgres` as the host.
 - **Port**: 3001.

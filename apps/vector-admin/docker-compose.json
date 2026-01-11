@@ -7,7 +7,7 @@
             "internalPort": "3001",
             "environment": {
                 "PG_HOST": "gis-postgres",
-                "PG_PORT": "5432",
+                "PG_PORT": "5433",
                 "PG_USER": "tipi",
                 "PG_PASS": "password",
                 "PG_DB": "gis"

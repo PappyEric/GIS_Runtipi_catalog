@@ -8,5 +8,7 @@
 - **Geometry Viewer**: Use the built-in geometry viewer to visually inspect PostGIS query results on a map without leaving the interface.
 
 ## Quick Start
-- **Connection**: Use the "Add Server" dialog to connect to `gis-postgres` using your configured credentials.
-- **Web Interface**: Accessible securely on port **5050**.
+- **Web Interface**: Accessible securely on port **8003**.
+- **Email**: `admin@admin.com` (Default)
+- **Password**: (Set during installation)
+- **Connection**: Use the "Add Server" dialog to connect to `gis-postgres` (Port 5433).

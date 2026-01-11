@@ -7,6 +7,9 @@
 - **Measurements**: Perform precise measurements (distance, height, area, volume) directly in the 3D view.
 - **No Plugins**: Runs in any modern browser without installing software.
 
+## Authentication
+- **None**: This is a public viewer.
+
 ## Usage
 - **Data**: Place your converted point cloud data (using [PotreeConverter](https://github.com/potree/PotreeConverter)) into the data volume.
 - **Customization**: Edit the HTML file to point to your new cloud `cloud.js`.
