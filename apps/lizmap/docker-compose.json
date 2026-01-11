@@ -3,8 +3,7 @@
         {
             "name": "lizmap-init",
             "image": "busybox",
-            "restart": "on-failure",
-            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www'",
+            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && echo \"Permissions fixed, sleeping...\" && sleep infinity'",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/var/db",
@@ -64,7 +63,7 @@
                     "condition": "service_started"
                 },
                 "lizmap-init": {
-                    "condition": "service_completed_successfully"
+                    "condition": "service_started"
                 }
             }
         },
