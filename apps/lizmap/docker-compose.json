@@ -89,8 +89,8 @@
             "environment": {
                 "QGSRV_SERVER_WORKERS": "4",
                 "QGSRV_LOGGING_LEVEL": "DEBUG",
-                "QGIS_SERVER_LIZMAP_REVEAL_SETTINGS": "yes",
-                "QGSRV_API_ENABLED_LIZMAP": "yes",
+                "QGIS_SERVER_LIZMAP_REVEAL_SETTINGS": "true",
+                "QGSRV_API_ENABLED_LIZMAP": "true",
                 "QGSRV_SERVER_PLUGINPATH": "/srv/plugins",
                 "QGIS_PLUGINPATH": "/srv/plugins",
                 "QGSRV_CACHE_ROOTDIR": "/srv/projects",
