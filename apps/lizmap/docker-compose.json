@@ -24,10 +24,29 @@
             ]
         },
         {
+            "name": "nginx",
+            "image": "nginx:alpine",
+            "isMain": true,
+            "internalPort": "80",
+            "volumes": [
+                {
+                    "hostPath": "./nginx.conf",
+                    "containerPath": "/etc/nginx/conf.d/default.conf"
+                },
+                {
+                    "hostPath": "${APP_DATA_DIR}/www",
+                    "containerPath": "/www/lizmap/www"
+                }
+            ],
+            "depends_on": {
+                "lizmap": {
+                    "condition": "service_started"
+                }
+            }
+        },
+        {
             "name": "lizmap",
             "image": "3liz/lizmap-web-client:3.8",
-            "isMain": true,
-            "internalPort": "8080",
             "environment": {
                 "LIZMAP_QGIS_SERVER_URL": "http://qgis-server:5555/fcgi-bin/qgis_mapserv.fcgi",
                 "LIZMAP_REDIS_HOST": "redis",
