@@ -3,7 +3,7 @@
         {
             "name": "lizmap-init",
             "image": "busybox",
-            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && sh /generate_nginx_conf.sh && echo \"Permissions fixed, sleeping...\" && sleep infinity'",
+            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && sed -i \"s/\\r$//\" /generate_nginx_conf.sh && sh /generate_nginx_conf.sh && echo \"Permissions fixed, sleeping...\" && sleep infinity'",
             "healthcheck": {
                 "test": [
                     "CMD",
