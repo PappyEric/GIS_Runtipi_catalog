@@ -45,8 +45,8 @@
             "name": "lizmap",
             "image": "3liz/lizmap-web-client:3.8",
             "environment": {
-                "LIZMAP_QGIS_SERVER_URL": "http://qgis-server:80/cgi-bin/qgis_mapserv.fcgi",
-                "LIZMAP_WMS_SERVER_URL": "http://qgis-server:80/cgi-bin/qgis_mapserv.fcgi",
+                "LIZMAP_QGIS_SERVER_URL": "http://qgis-server:80/ows/",
+                "LIZMAP_WMS_SERVER_URL": "http://qgis-server:80/ows/",
                 "LIZMAP_REDIS_HOST": "redis",
                 "LIZMAP_HOME": "/www/lizmap"
             },
