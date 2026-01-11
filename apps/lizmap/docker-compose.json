@@ -3,7 +3,7 @@
         {
             "name": "lizmap-init",
             "image": "busybox",
-            "restart": "no",
+            "restart": "on-failure",
             "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www'",
             "volumes": [
                 {
