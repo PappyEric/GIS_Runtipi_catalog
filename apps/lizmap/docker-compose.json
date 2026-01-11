@@ -49,11 +49,9 @@
                     "containerPath": "/www/lizmap/www"
                 }
             ],
-            "depends_on": {
-                "lizmap": {
-                    "condition": "service_started"
-                }
-            }
+            "depends_on": [
+                "lizmap"
+            ]
         },
         {
             "name": "lizmap",
@@ -88,17 +86,11 @@
                     "containerPath": "/www/lizmap/var/log"
                 }
             ],
-            "depends_on": {
-                "qgis-server": {
-                    "condition": "service_started"
-                },
-                "redis": {
-                    "condition": "service_started"
-                },
-                "lizmap-init": {
-                    "condition": "service_completed_successfully"
-                }
-            }
+            "depends_on": [
+                "qgis-server",
+                "redis",
+                "lizmap-init"
+            ]
         },
         {
             "name": "qgis-server",
@@ -125,11 +117,9 @@
                     "containerPath": "/srv/plugins"
                 }
             ],
-            "depends_on": {
-                "lizmap-config": {
-                    "condition": "service_completed_successfully"
-                }
-            }
+            "depends_on": [
+                "lizmap-config"
+            ]
         },
         {
             "name": "redis",
