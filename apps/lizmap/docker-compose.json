@@ -85,20 +85,43 @@
             }
         },
         {
+            "name": "qgis-plugin-init",
+            "image": "3liz/qgis-map-server:3.34",
+            "environment": {
+                "QGSRV_SERVER_WORKERS": "1"
+            },
+            "command": "sh -c 'qgis-plugin-manager init && qgis-plugin-manager install \"Lizmap server\" && mkdir -p /plugins && cp -r /root/.local/share/QGIS/QGIS3/profiles/default/python/plugins/* /plugins/ && echo \"Plugins installed\"'",
+            "volumes": [
+                {
+                    "hostPath": "${APP_DATA_DIR}/qgis_plugins",
+                    "containerPath": "/plugins"
+                }
+            ]
+        },
+        {
             "name": "qgis-server",
             "image": "3liz/qgis-map-server:3.34",
             "environment": {
                 "QGSRV_SERVER_WORKERS": "4",
-                "QGIS_SERVER_LOG_LEVEL": "0",
+                "QGIS_SERVER_LOG_LEVEL": "2",
                 "QGIS_SERVER_LIZMAP_REVEAL_SETTINGS": "True",
-                "QGIS_PLUGIN_IN_STARTUP": "lizmap-server"
+                "QGSRV_SERVER_PLUGINPATH": "/plugins"
             },
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/projects",
                     "containerPath": "/io/data"
+                },
+                {
+                    "hostPath": "${APP_DATA_DIR}/qgis_plugins",
+                    "containerPath": "/plugins"
                 }
-            ]
+            ],
+            "depends_on": {
+                "qgis-plugin-init": {
+                    "condition": "service_completed_successfully"
+                }
+            }
         },
         {
             "name": "redis",
