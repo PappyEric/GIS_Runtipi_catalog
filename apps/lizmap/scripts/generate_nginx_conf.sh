@@ -2,6 +2,10 @@
 
 echo "Generating Nginx configuration..."
 
+# Ensure directory is traversable by everyone (Nginx user needs access)
+mkdir -p /www/lizmap/var/config
+chmod 755 /www/lizmap/var/config
+
 cat << 'EOF' > /www/lizmap/var/config/default.conf
 server {
     listen 80;
@@ -27,6 +31,11 @@ server {
 }
 EOF
 
-# Ensure permissions are correct
+# Determine permissions
+# We want user 1000 (Lizmap PHP) to own it, but Nginx (usually 101 or similar) to READ it.
+# So we set owner to 1000:1000, but ensure permissions are 644 (Read for everyone).
 chown 1000:1000 /www/lizmap/var/config/default.conf
+chmod 644 /www/lizmap/var/config/default.conf
+
 echo "Nginx configuration generated successfully."
+ls -l /www/lizmap/var/config/default.conf
