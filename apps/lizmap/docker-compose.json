@@ -3,6 +3,7 @@
         {
             "name": "lizmap-init",
             "image": "busybox",
+            "restart": "no",
             "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www'",
             "volumes": [
                 {
@@ -55,11 +56,17 @@
                     "containerPath": "/www/lizmap/var/log"
                 }
             ],
-            "depends_on": [
-                "qgis-server",
-                "redis",
-                "lizmap-init"
-            ]
+            "depends_on": {
+                "qgis-server": {
+                    "condition": "service_started"
+                },
+                "redis": {
+                    "condition": "service_started"
+                },
+                "lizmap-init": {
+                    "condition": "service_completed_successfully"
+                }
+            }
         },
         {
             "name": "qgis-server",
