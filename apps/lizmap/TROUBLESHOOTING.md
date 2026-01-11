@@ -1,144 +1,129 @@
-# Lizmap QGIS Server Plugin - Troubleshooting Guide
+# Lizmap Plugin Installation - DEFINITIVE FIX
 
-## Current Status
+## Problem
 
-Based on your screenshots:
-- ✅ Plugin files are installed (version 2.13.0 detected)
-- ✅ QGIS Server is running
-- ❌ Plugin is not being loaded by QGIS Server (404 errors on `/lizmap/server.json`)
+QGIS Server shows `"Loaded 0 plugin(s) successfully"` even though plugin files exist.
 
-## Fix: Verify Plugin Structure
+## Root Cause
 
-The plugin needs to be in the correct directory structure. Run this in **Portainer Console** on the `lizmap-init` container:
+The plugin directory structure doesn't match what QGIS Server expects for Python server plugins.
 
-```sh
-# Check current structure
-ls -la /srv/plugins/
-ls -la /srv/plugins/lizmap_server/
+## Solution
 
-# Verify metadata.txt exists
-cat /srv/plugins/lizmap_server/metadata.txt
-
-# Check for __init__.py (required for Python plugins)
-ls -la /srv/plugins/lizmap_server/__init__.py
-```
-
-## Solution 1: Fix Plugin Structure (Most Likely Issue)
-
-QGIS Server might not be finding the plugin because of the directory structure. Try this:
-
-```sh
-cd /srv/plugins
-# Remove old installation
-rm -rf lizmap_server
-
-# Reinstall with correct structure
-wget https://github.com/3liz/qgis-lizmap-server-plugin/archive/refs/heads/master.zip -O lizmap.zip
-unzip -o lizmap.zip
-
-# The plugin should be in a directory named exactly "lizmap_server"
-# Check what was extracted
-ls -la
-
-# If it extracted as "qgis-lizmap-server-plugin-master", rename it
-mv qgis-lizmap-server-plugin-master lizmap_server
-
-# Ensure the main plugin files are directly in lizmap_server/
-ls -la lizmap_server/
-
-# Set permissions
-chmod -R 777 lizmap_server
-
-# Clean up
-rm lizmap.zip
-```
-
-## Solution 2: Check Plugin Path Variable
-
-The environment variable might be pointing to the wrong location. In Portainer, check the `qgis-server` container environment:
-
-Expected: `QGSRV_SERVER_PLUGINPATH=/srv/plugins`
-
-## Solution 3: Restart QGIS Server
-
-After fixing the structure, restart the entire Lizmap app in Runtipi to reload the plugin.
-
-## Verification Commands
-
-Run these in the `lizmap-init` container console to verify:
-
-```sh
-# 1. Check if metadata.txt exists and is readable
-cat /srv/plugins/lizmap_server/metadata.txt | head -20
-
-# 2. Check if __init__.py exists (required for Python plugins)
-test -f /srv/plugins/lizmap_server/__init__.py && echo "✓ __init__.py found" || echo "✗ __init__.py missing"
-
-# 3. Check if serverinfo.py exists (main plugin file)
-test -f /srv/plugins/lizmap_server/serverinfo.py && echo "✓ serverinfo.py found" || echo "✗ serverinfo.py missing"
-
-# 4. List all Python files
-find /srv/plugins/lizmap_server/ -name "*.py" | head -10
-
-# 5. Check permissions
-ls -la /srv/plugins/lizmap_server/ | head -10
-```
-
-## Expected Output
-
-After correct installation, you should see:
-```
-/srv/plugins/
-└── lizmap_server/
-    ├── __init__.py
-    ├── metadata.txt
-    ├── serverinfo.py
-    └── [other plugin files]
-```
-
-## Alternative: Check QGIS Server Logs
-
-In Portainer, check the logs of the `qgis-server` container for plugin loading messages:
-
-Look for lines like:
-- `"Initializing plugins from /srv/plugins"`
-- `"Loaded X plugin(s) successfully"`
-
-If it still shows `"Loaded 0 plugin(s)"`, the plugin structure is incorrect.
-
-## Quick Fix Script
-
-Copy and paste this entire block into Portainer console:
+Run this **COMPLETE FIX** script in Portainer Console (`lizmap-init` container):
 
 ```sh
 #!/bin/sh
-echo "=== Lizmap Plugin Installation Fix ==="
-cd /srv/plugins
-rm -rf lizmap_server qgis-lizmap-server-plugin-master lizmap.zip
-wget -q https://github.com/3liz/qgis-lizmap-server-plugin/archive/refs/heads/master.zip -O lizmap.zip
-unzip -q -o lizmap.zip
+echo "=== Lizmap Server Plugin - Complete Fix ==="
+echo ""
+
+# Navigate to plugins directory
+cd /srv/plugins || exit 1
+
+# Clean everything
+echo "1. Cleaning old installations..."
+rm -rf lizmap_server qgis-lizmap-server-plugin-master *.zip
+
+# Download plugin
+echo "2. Downloading plugin..."
+wget -q https://github.com/3liz/qgis-lizmap-server-plugin/archive/refs/heads/master.zip -O plugin.zip
+
+if [ ! -f plugin.zip ]; then
+    echo "ERROR: Download failed!"
+    exit 1
+fi
+
+# Extract
+echo "3. Extracting..."
+unzip -q -o plugin.zip
+
+# Rename to exact name QGIS expects
+echo "4. Setting up directory structure..."
 mv qgis-lizmap-server-plugin-master lizmap_server
-chmod -R 777 lizmap_server
-rm lizmap.zip
+
+# Verify critical files exist
+echo ""
+echo "5. Verifying installation..."
+
+if [ ! -f lizmap_server/__init__.py ]; then
+    echo "ERROR: __init__.py not found!"
+    ls -la lizmap_server/ | head -20
+    exit 1
+fi
+
+if [ ! -f lizmap_server/metadata.txt ]; then
+    echo "ERROR: metadata.txt not found!"
+    exit 1
+fi
+
+# Set permissions (QGIS Server runs as user 1000:1000 per QGSRV_USER)
+echo "6. Setting permissions..."
+chown -R 1000:1000 lizmap_server
+chmod -R 755 lizmap_server
+
+# Make Python files executable
+find lizmap_server -name "*.py" -exec chmod 644 {} \;
+
+# Cleanup
+rm -f plugin.zip
 
 echo ""
-echo "=== Verification ==="
-echo "Plugin directory:"
+echo "=== Installation Complete ==="
+echo ""
+echo "Plugin structure:"
 ls -la /srv/plugins/
-
 echo ""
-echo "Plugin files:"
+echo "Plugin contents (first 15 files):"
 ls -la /srv/plugins/lizmap_server/ | head -15
-
 echo ""
-echo "Checking required files:"
-test -f /srv/plugins/lizmap_server/__init__.py && echo "✓ __init__.py found" || echo "✗ __init__.py MISSING"
-test -f /srv/plugins/lizmap_server/metadata.txt && echo "✓ metadata.txt found" || echo "✗ metadata.txt MISSING"
-test -f /srv/plugins/lizmap_server/serverinfo.py && echo "✓ serverinfo.py found" || echo "✗ serverinfo.py MISSING"
-
+echo "Python files found:"
+find /srv/plugins/lizmap_server -name "*.py" -type f | head -10
 echo ""
-echo "=== Installation complete! ==="
-echo "Now restart the Lizmap app in Runtipi"
+echo "Metadata check:"
+head -5 /srv/plugins/lizmap_server/metadata.txt
+echo ""
+echo "=== NEXT STEP: Restart Lizmap app in Runtipi ==="
 ```
 
-After running this, **restart the Lizmap app** and check the Server Information page again.
+## After Running the Script
+
+1. **Restart the Lizmap app** in Runtipi (Stop → Start or Uninstall → Install)
+
+2. **Check QGIS Server logs** in Portainer for the `qgis-server` container:
+   - Look for: `"Initializing plugins from /srv/plugins"`
+   - Should see: `"Loaded 1 plugin(s) successfully"` (not 0!)
+   - Should see: `"Loading Python plugin lizmap_server"`
+
+3. **Verify in Lizmap**:
+   - Go to Admin → QGIS Server Information
+   - All checks should be green
+   - No more 404 errors in logs
+
+## If Still Not Working
+
+Run these diagnostic commands in the `qgis-server` container console:
+
+```sh
+# Check if QGIS Server can see the plugins directory
+ls -la /srv/plugins/
+
+# Check environment variable
+echo $QGSRV_SERVER_PLUGINPATH
+
+# Try to import the plugin manually (as Python)
+python3 -c "import sys; sys.path.append('/srv/plugins'); import lizmap_server; print('SUCCESS')"
+```
+
+## Alternative: Check Plugin Compatibility
+
+If the plugin still won't load, verify the QGIS version compatibility:
+
+```sh
+# In qgis-server container
+qgis --version
+
+# Check plugin metadata for compatible versions
+grep -i "qgisMinimumVersion\|qgisMaximumVersion" /srv/plugins/lizmap_server/metadata.txt
+```
+
+The plugin should be compatible with QGIS 3.34 (your version).
