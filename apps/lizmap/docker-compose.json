@@ -87,10 +87,11 @@
         {
             "name": "qgis-plugin-init",
             "image": "3liz/qgis-map-server:3.34",
+            "user": "0",
             "environment": {
                 "QGSRV_SERVER_WORKERS": "1"
             },
-            "command": "sh -c 'qgis-plugin-manager init && qgis-plugin-manager install \"Lizmap server\" && mkdir -p /plugins && cp -r /root/.local/share/QGIS/QGIS3/profiles/default/python/plugins/* /plugins/ && echo \"Plugins installed\"'",
+            "command": "sh -c 'qgis-plugin-manager init && qgis-plugin-manager update && qgis-plugin-manager install \"Lizmap server\" && mkdir -p /plugins && cp -r ~/.local/share/QGIS/QGIS3/profiles/default/python/plugins/* /plugins/ && chmod -R 777 /plugins && echo \"Plugins installed successfully\"'",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/qgis_plugins",
