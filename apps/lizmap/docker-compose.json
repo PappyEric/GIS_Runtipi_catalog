@@ -28,7 +28,7 @@
             "image": "nginx:alpine",
             "isMain": true,
             "internalPort": "80",
-            "command": "/bin/sh -c \"printf 'server {\\n    listen 80;\\n    server_name _;\\n    root /www/lizmap/www;\\n    index index.php index.html;\\n    client_max_body_size 100M;\\n    fastcgi_read_timeout 300;\\n    location / {\\n        try_files $$uri $$uri/ /index.php$$is_args$$args;\\n    }\\n    location ~ \\\\.php$ {\\n        fastcgi_split_path_info ^(.+\\\\.php)(/.+)$;\\n        fastcgi_pass lizmap:9000;\\n        fastcgi_index index.php;\\n        include fastcgi_params;\\n        fastcgi_param SCRIPT_FILENAME $$document_root$$fastcgi_script_name;\\n        fastcgi_param PATH_INFO $$fastcgi_path_info;\\n    }\\n}' > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'\"",
+            "command": "/bin/sh -c \"printf 'server {\\n    listen 80;\\n    server_name _;\\n    root /www/lizmap/www;\\n    index index.php index.html;\\n    client_max_body_size 100M;\\n    fastcgi_read_timeout 300;\\n    location / {\\n        try_files \\$$uri \\$$uri/ /index.php\\$$is_args\\$$args;\\n    }\\n    location ~ \\\\.php$ {\\n        fastcgi_split_path_info ^(.+\\\\.php)(/.+)$;\\n        fastcgi_pass lizmap:9000;\\n        fastcgi_index index.php;\\n        include fastcgi_params;\\n        fastcgi_param SCRIPT_FILENAME \\$$document_root\\$$fastcgi_script_name;\\n        fastcgi_param PATH_INFO \\$$fastcgi_path_info;\\n    }\\n}' > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'\"",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/www",
