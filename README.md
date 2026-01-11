@@ -37,7 +37,7 @@ This catalog allows you to deploy a complete **Modern GIS Stack** (PostGIS, GeoS
 
 1.  Open your **Runtipi Dashboard**.
 2.  Go to **Settings** -> **App Store**.
-3.  Add Custom Catalog: `https://github.com/PappyEric/GIS_Runtipi_catalog` (or your specific URL).
+3.  Add Custom Catalog: `https://github.com/PappyEric/GIS_Runtipi_catalog`
 4.  Go to the **App Store** tab.
 5.  **Install `GIS PostGIS Engine` FIRST.**
     *   Set your credentials securely.
