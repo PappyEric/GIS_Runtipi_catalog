@@ -1,9 +1,23 @@
 {
     "services": [
         {
+            "name": "lizmap-config",
+            "image": "3liz/qgis-map-server:3.34",
+            "command": "sh -c 'qgis-plugin-manager init && qgis-plugin-manager update && qgis-plugin-manager install \"Lizmap server\" && qgis-plugin-manager install atlasprint && qgis-plugin-manager install wfsOutputExtension && echo \"Plugins installed successfully\"'",
+            "environment": {
+                "QGSRV_SERVER_PLUGINPATH": "/srv/plugins"
+            },
+            "volumes": [
+                {
+                    "hostPath": "${APP_DATA_DIR}/plugins",
+                    "containerPath": "/srv/plugins"
+                }
+            ]
+        },
+        {
             "name": "lizmap-init",
             "image": "busybox",
-            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www /srv/plugins && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www /srv/plugins && echo \"Permissions fixed, sleeping...\" && sleep infinity'",
+            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && echo \"Permissions fixed\"'",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/var/db",
@@ -20,10 +34,6 @@
                 {
                     "hostPath": "${APP_DATA_DIR}/www",
                     "containerPath": "/www/lizmap/www"
-                },
-                {
-                    "hostPath": "${APP_DATA_DIR}/plugins",
-                    "containerPath": "/srv/plugins"
                 }
             ]
         },
@@ -86,7 +96,7 @@
                     "condition": "service_started"
                 },
                 "lizmap-init": {
-                    "condition": "service_started"
+                    "condition": "service_completed_successfully"
                 }
             }
         },
@@ -116,8 +126,8 @@
                 }
             ],
             "depends_on": {
-                "lizmap-init": {
-                    "condition": "service_started"
+                "lizmap-config": {
+                    "condition": "service_completed_successfully"
                 }
             }
         },
