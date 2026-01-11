@@ -3,7 +3,7 @@
         {
             "name": "lizmap-init",
             "image": "busybox",
-            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && printf \"server {\\n    listen 80;\\n    server_name _;\\n    root /www/lizmap/www;\\n    index index.php index.html;\\n\\n    client_max_body_size 100M;\\n    fastcgi_read_timeout 300;\\n\\n    location / {\\n        try_files \\$uri \\$uri/ /index.php\\$is_args\\$args;\\n    }\\n\\n    location ~ \\.php$ {\\n        fastcgi_split_path_info ^(.+\\.php)(/.+)$;\\n        fastcgi_pass lizmap:9000;\\n        fastcgi_index index.php;\\n        include fastcgi_params;\\n        fastcgi_param SCRIPT_FILENAME \\$document_root\\$fastcgi_script_name;\\n        fastcgi_param PATH_INFO \\$fastcgi_path_info;\\n    }\\n}\\n\" > /www/lizmap/var/config/default.conf && echo \"Config generated, sleeping...\" && sleep infinity'",
+            "command": "sh -c 'mkdir -p /www/lizmap/var/db /www/lizmap/var/config /www/lizmap/var/log /www/lizmap/www && chown -R 1000:1000 /www/lizmap/var /www/lizmap/www && sh /generate_nginx_conf.sh && echo \"Permissions fixed, sleeping...\" && sleep infinity'",
             "volumes": [
                 {
                     "hostPath": "${APP_DATA_DIR}/var/db",
@@ -20,6 +20,10 @@
                 {
                     "hostPath": "${APP_DATA_DIR}/www",
                     "containerPath": "/www/lizmap/www"
+                },
+                {
+                    "hostPath": "./scripts/generate_nginx_conf.sh",
+                    "containerPath": "/generate_nginx_conf.sh"
                 }
             ]
         },
