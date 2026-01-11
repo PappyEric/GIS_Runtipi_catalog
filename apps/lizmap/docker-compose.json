@@ -25,6 +25,10 @@
                 {
                     "hostPath": "${APP_DATA_DIR}/var/log",
                     "containerPath": "/www/lizmap/var/log"
+                },
+                {
+                    "hostPath": "${APP_DATA_DIR}/www",
+                    "containerPath": "/www/lizmap/www"
                 }
             ],
             "depends_on": [
