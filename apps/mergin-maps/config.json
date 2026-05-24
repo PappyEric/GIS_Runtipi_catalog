@@ -60,6 +60,13 @@
             "required": true
         },
         {
+            "type": "text",
+            "env_variable": "GLOBAL_WORKSPACE",
+            "label": "Global Workspace Name (e.g. MyOrg)",
+            "default": "merginmaps",
+            "required": true
+        },
+        {
             "type": "password",
             "env_variable": "SECRET_KEY",
             "label": "Flask Secret Key",

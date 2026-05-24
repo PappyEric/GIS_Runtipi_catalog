@@ -6,7 +6,7 @@ services:
 
   mergin-maps:
     image: lutraconsulting/merginmaps-backend:2025.7.3
-    entrypoint: ["/bin/bash", "-c", "umask 0027 && flask --app application db upgrade b9ec9ab6694f && python3 -c \"import psycopg2; conn = psycopg2.connect(host='${DB_HOST}', port='${DB_PORT}', user='${DB_USER}', password='${DB_PASSWORD}', database='${DB_DATABASE}'); cur = conn.cursor(); cur.execute('CREATE TABLE IF NOT EXISTS removed_project (workspace_id integer, name text, namespace text);'); conn.commit(); conn.close()\" && flask --app application db upgrade 35af0c8be41e && (flask --app application user create \"${ADMIN_USER}\" \"${ADMIN_PASSWORD}\" --is-admin --email \"${ADMIN_EMAIL}\" || true) && gunicorn -w 4 -b 0.0.0.0:5000 --config config.py application:application"]
+    entrypoint: ["/bin/bash", "-c", "umask 0027 && (flask --app application init --email ${ADMIN_EMAIL} --password ${ADMIN_PASSWORD} || true) && gunicorn -w 4 -b 0.0.0.0:5000 --config config.py application:application"]
     depends_on:
       - mergin-maps-redis
     environment:
@@ -17,6 +17,7 @@ services:
       DB_DATABASE: ${DB_DATABASE}
       CELERY_BROKER_URL: "redis://mergin-maps-redis:6379/0"
       MERGIN_BASE_URL: ${MERGIN_BASE_URL}
+      GLOBAL_WORKSPACE: ${GLOBAL_WORKSPACE}
       SECRET_KEY: ${SECRET_KEY}
       SECURITY_BEARER_SALT: ${SECURITY_BEARER_SALT}
       SECURITY_EMAIL_SALT: ${SECURITY_EMAIL_SALT}
@@ -43,6 +44,7 @@ services:
       DB_DATABASE: ${DB_DATABASE}
       CELERY_BROKER_URL: "redis://mergin-maps-redis:6379/0"
       MERGIN_BASE_URL: ${MERGIN_BASE_URL}
+      GLOBAL_WORKSPACE: ${GLOBAL_WORKSPACE}
       SECRET_KEY: ${SECRET_KEY}
       SECURITY_BEARER_SALT: ${SECURITY_BEARER_SALT}
       SECURITY_EMAIL_SALT: ${SECURITY_EMAIL_SALT}
@@ -66,6 +68,7 @@ services:
       DB_DATABASE: ${DB_DATABASE}
       CELERY_BROKER_URL: "redis://mergin-maps-redis:6379/0"
       MERGIN_BASE_URL: ${MERGIN_BASE_URL}
+      GLOBAL_WORKSPACE: ${GLOBAL_WORKSPACE}
       SECRET_KEY: ${SECRET_KEY}
       SECURITY_BEARER_SALT: ${SECURITY_BEARER_SALT}
       SECURITY_EMAIL_SALT: ${SECURITY_EMAIL_SALT}
