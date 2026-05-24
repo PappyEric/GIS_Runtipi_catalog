@@ -1,0 +1,24 @@
+{
+    "name": "Maputnik",
+    "id": "maputnik",
+    "available": true,
+    "short_desc": "An open source visual editor for the Mapbox Style Specification.",
+    "author": "Eric D",
+    "categories": [
+        "media",
+        "utilities"
+    ],
+    "port": 8889,
+    "version": "latest",
+    "tipi_version": 2,
+    "source": "https://github.com/maputnik/editor",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": [],
+    "dynamic_config": true,
+    "created_at": 1779588168938,
+    "updated_at": 1779588168938
+}

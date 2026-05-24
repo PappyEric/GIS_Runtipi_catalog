@@ -1,17 +1,16 @@
 {
-    "name": "Martin Tile Server",
-    "id": "martin",
+    "name": "Crunchy Spatial",
+    "id": "pg-spatial",
     "available": true,
-    "short_desc": "Ultra-fast PostGIS vector tile server (Rust).",
+    "short_desc": "Lightweight PostGIS spatial API servers: pg_tileserv and pg_featureserv.",
     "author": "Eric D",
     "categories": [
-        "utilities",
         "data"
     ],
-    "port": 3003,
-    "version": "v1.10.1",
+    "port": 9000,
+    "version": "latest",
     "tipi_version": 2,
-    "source": "https://github.com/maplibre/martin",
+    "source": "https://github.com/CrunchyData",
     "exposable": true,
     "supported_architectures": [
         "amd64",
@@ -21,12 +20,12 @@
         {
             "type": "text",
             "env_variable": "DATABASE_URL",
-            "label": "Database Connection String",
+            "label": "PostGIS Database URL",
             "default": "postgresql://postgres:postgisadmin@gis-postgres:5433/gis",
             "required": true
         }
     ],
     "dynamic_config": true,
-    "created_at": 1745082405284,
-    "updated_at": 1745674974072
+    "created_at": 1779588168938,
+    "updated_at": 1779588168938
 }

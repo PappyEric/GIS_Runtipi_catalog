@@ -1,0 +1,16 @@
+services:
+  graphhopper:
+    image: israelhikingmap/graphhopper:latest
+    environment:
+      JAVA_OPTS: -Xmx2g -Xms2g
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
+      - ${APP_DATA_DIR}/config:/config
+    command: --host 0.0.0.0
+    x-runtipi:
+      is_main: true
+      internal_port: 8989
+      add_to_main_network: true
+x-runtipi:
+  schema_version: 2
+  overrides: []

@@ -1,0 +1,9 @@
+services:
+  maputnik:
+    image: maputnik/editor:latest
+    x-runtipi:
+      is_main: true
+      internal_port: 8888
+x-runtipi:
+  schema_version: 2
+  overrides: []

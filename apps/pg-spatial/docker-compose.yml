@@ -1,0 +1,19 @@
+services:
+  pg_tileserv:
+    image: crunchydata/pg_tileserv:latest
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    x-runtipi:
+      is_main: true
+      internal_port: 9000
+      add_to_main_network: true
+  pg_featureserv:
+    image: crunchydata/pg_featureserv:latest
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+    x-runtipi:
+      internal_port: 9000
+      add_to_main_network: true
+x-runtipi:
+  schema_version: 2
+  overrides: []

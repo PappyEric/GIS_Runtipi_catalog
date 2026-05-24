@@ -1,6 +1,6 @@
 services:
   martin:
-    image: maplibre/martin:v0.14.0
+    image: maplibre/martin:v1.10.1
     command: ${DATABASE_URL}
     x-runtipi:
       is_main: true

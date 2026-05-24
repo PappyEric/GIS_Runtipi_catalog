@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: geonode/nginx:4.2.0
+    image: geonode/nginx:5.0.0
     environment:
       RESOLVER: 127.0.0.11
     depends_on:
@@ -10,7 +10,7 @@ services:
       is_main: true
       internal_port: 80
   django:
-    image: geonode/geonode:4.2.0
+    image: geonode/geonode:5.0.0
     environment:
       GEONODE_INSTANCE_NAME: geonode
       GEONODE_LB_HOST_IP: ${GEONODE_LB_HOST_IP}
@@ -30,7 +30,7 @@ services:
     x-runtipi:
       add_to_main_network: true
   geoserver:
-    image: geonode/geoserver:2.23.0
+    image: geonode/geoserver:2.27.5-latest
     environment:
       GEONODE_LB_HOST_IP: ${GEONODE_LB_HOST_IP}
       GEONODE_LB_PORT: "80"
@@ -40,7 +40,7 @@ services:
   redis:
     image: redis:7-alpine
   celery:
-    image: geonode/geonode:4.2.0
+    image: geonode/geonode:5.0.0
     command: celery-cmd
     environment:
       DATABASE_URL: postgis://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5433/geonode

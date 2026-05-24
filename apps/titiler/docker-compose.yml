@@ -1,0 +1,11 @@
+services:
+  titiler:
+    image: ghcr.io/developmentseed/titiler:latest
+    environment:
+      PORT: "8000"
+    x-runtipi:
+      is_main: true
+      internal_port: 8000
+x-runtipi:
+  schema_version: 2
+  overrides: []

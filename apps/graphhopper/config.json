@@ -1,0 +1,23 @@
+{
+    "name": "GraphHopper",
+    "id": "graphhopper",
+    "available": true,
+    "short_desc": "A fast and memory-efficient routing engine using OpenStreetMap data.",
+    "author": "Eric D",
+    "categories": [
+        "utilities"
+    ],
+    "port": 8989,
+    "version": "latest",
+    "tipi_version": 2,
+    "source": "https://github.com/graphhopper/graphhopper",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": [],
+    "dynamic_config": true,
+    "created_at": 1779588168938,
+    "updated_at": 1779588168938
+}

@@ -31,7 +31,7 @@ services:
       is_main: true
       internal_port: 80
   lizmap:
-    image: 3liz/lizmap-web-client:3.8
+    image: 3liz/lizmap-web-client:3.9
     environment:
       LIZMAP_WMSSERVERURL: http://qgis-server:8080/ows/
       LIZMAP_CACHERREDISHOST: redis
@@ -53,7 +53,7 @@ services:
     x-runtipi:
       add_to_main_network: true
   qgis-server:
-    image: 3liz/qgis-map-server:3.34
+    image: 3liz/qgis-map-server:ltr
     environment:
       QGSRV_SERVER_WORKERS: "4"
       QGSRV_LOGGING_LEVEL: DEBUG

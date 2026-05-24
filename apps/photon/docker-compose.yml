@@ -1,0 +1,12 @@
+services:
+  photon:
+    image: rtuszik/photon-docker:latest
+    volumes:
+      - ${APP_DATA_DIR}/data:/photon/data
+    x-runtipi:
+      is_main: true
+      internal_port: 2322
+      add_to_main_network: true
+x-runtipi:
+  schema_version: 2
+  overrides: []

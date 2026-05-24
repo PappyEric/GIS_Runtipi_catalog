@@ -1,0 +1,23 @@
+{
+    "name": "Photon",
+    "id": "photon",
+    "available": true,
+    "short_desc": "An incredibly fast, multilingual, and typo-tolerant geocoding engine.",
+    "author": "Eric D",
+    "categories": [
+        "utilities"
+    ],
+    "port": 2322,
+    "version": "latest",
+    "tipi_version": 2,
+    "source": "https://github.com/komoot/photon",
+    "exposable": true,
+    "supported_architectures": [
+        "amd64",
+        "arm64"
+    ],
+    "form_fields": [],
+    "dynamic_config": true,
+    "created_at": 1779588168938,
+    "updated_at": 1779588168938
+}
