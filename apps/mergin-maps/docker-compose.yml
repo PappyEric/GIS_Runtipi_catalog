@@ -1,6 +1,6 @@
 services:
   mergin-maps:
-    image: lutraconsulting/merginmaps-backend:latest
+    image: lutraconsulting/merginmaps-backend:2025.7.3
     environment:
       DB_HOST: ${DB_HOST}
       DB_PORT: "5433"
