@@ -26,12 +26,12 @@ services:
       ADMIN_EMAIL: admin@example.com
       C_FORCE_ROOT: "True"
     entrypoint:
-      - /bin/bash
-      - -c
+      - "/bin/bash"
+      - "-c"
       - |
         export ENCODED_PW=$$(python3 -c "import urllib.parse, os; print(urllib.parse.quote_plus(os.environ['DB_PASSWORD']))")
-        export DATABASE_URL="postgis://${DB_USER}:$${ENCODED_PW}@${DB_HOST}:${DB_PORT}/geonode"
-        export GEODATABASE_URL="postgis://${DB_USER}:$${ENCODED_PW}@${DB_HOST}:${DB_PORT}/geonode_data"
+        export DATABASE_URL="postgis://${DB_USER}:$$ENCODED_PW@${DB_HOST}:${DB_PORT}/geonode"
+        export GEODATABASE_URL="postgis://${DB_USER}:$$ENCODED_PW@${DB_HOST}:${DB_PORT}/geonode_data"
         exec /usr/src/geonode/entrypoint.sh uwsgi --ini /usr/src/geonode/uwsgi.ini
     depends_on:
       - redis
@@ -57,12 +57,12 @@ services:
       BROKER_URL: redis://redis:6379/1
       C_FORCE_ROOT: "True"
     entrypoint:
-      - /bin/bash
-      - -c
+      - "/bin/bash"
+      - "-c"
       - |
         export ENCODED_PW=$$(python3 -c "import urllib.parse, os; print(urllib.parse.quote_plus(os.environ['DB_PASSWORD']))")
-        export DATABASE_URL="postgis://${DB_USER}:$${ENCODED_PW}@${DB_HOST}:${DB_PORT}/geonode"
-        export GEODATABASE_URL="postgis://${DB_USER}:$${ENCODED_PW}@${DB_HOST}:${DB_PORT}/geonode_data"
+        export DATABASE_URL="postgis://${DB_USER}:$$ENCODED_PW@${DB_HOST}:${DB_PORT}/geonode"
+        export GEODATABASE_URL="postgis://${DB_USER}:$$ENCODED_PW@${DB_HOST}:${DB_PORT}/geonode_data"
         exec /usr/src/geonode/entrypoint.sh celery-cmd
     depends_on:
       - redis
