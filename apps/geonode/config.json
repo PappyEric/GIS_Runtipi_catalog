@@ -40,6 +40,13 @@
         },
         {
             "type": "text",
+            "env_variable": "DB_PORT",
+            "label": "Postgres Port",
+            "default": "5432",
+            "required": true
+        },
+        {
+            "type": "text",
             "env_variable": "GEONODE_LB_HOST_IP",
             "label": "Site Host/Domain",
             "default": "localhost",

@@ -10,10 +10,10 @@ services:
       - mergin-maps-redis
     environment:
       DB_HOST: ${DB_HOST}
-      DB_PORT: "5433"
+      DB_PORT: ${DB_PORT}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
-      DB_DATABASE: "gis"
+      DB_DATABASE: ${DB_DATABASE}
       CELERY_BROKER_URL: "redis://mergin-maps-redis:6379/0"
       MERGIN_BASE_URL: ${MERGIN_BASE_URL}
       SECRET_KEY: ${SECRET_KEY}
@@ -35,10 +35,10 @@ services:
       - mergin-maps
     environment:
       DB_HOST: ${DB_HOST}
-      DB_PORT: "5433"
+      DB_PORT: ${DB_PORT}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
-      DB_DATABASE: "gis"
+      DB_DATABASE: ${DB_DATABASE}
       CELERY_BROKER_URL: "redis://mergin-maps-redis:6379/0"
       MERGIN_BASE_URL: ${MERGIN_BASE_URL}
       SECRET_KEY: ${SECRET_KEY}
@@ -58,10 +58,10 @@ services:
       - mergin-maps
     environment:
       DB_HOST: ${DB_HOST}
-      DB_PORT: "5433"
+      DB_PORT: ${DB_PORT}
       DB_USER: ${DB_USER}
       DB_PASSWORD: ${DB_PASSWORD}
-      DB_DATABASE: "gis"
+      DB_DATABASE: ${DB_DATABASE}
       CELERY_BROKER_URL: "redis://mergin-maps-redis:6379/0"
       MERGIN_BASE_URL: ${MERGIN_BASE_URL}
       SECRET_KEY: ${SECRET_KEY}

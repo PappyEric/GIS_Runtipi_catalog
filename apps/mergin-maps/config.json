@@ -40,6 +40,20 @@
         },
         {
             "type": "text",
+            "env_variable": "DB_PORT",
+            "label": "Postgres Database Port",
+            "default": "5432",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "DB_DATABASE",
+            "label": "Postgres Database Name",
+            "default": "mergin_maps",
+            "required": true
+        },
+        {
+            "type": "text",
             "env_variable": "MERGIN_BASE_URL",
             "label": "Base URL (e.g. http://your-ip:8002)",
             "default": "http://localhost:8002",
