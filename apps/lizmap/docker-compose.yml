@@ -72,3 +72,6 @@ services:
       add_to_main_network: true
   redis:
     image: redis:alpine
+x-runtipi:
+  schema_version: 2
+  overrides: []

@@ -51,3 +51,6 @@ services:
       - redis
     x-runtipi:
       add_to_main_network: true
+x-runtipi:
+  schema_version: 2
+  overrides: []

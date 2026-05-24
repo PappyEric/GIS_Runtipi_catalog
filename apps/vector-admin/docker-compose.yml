@@ -11,3 +11,6 @@ services:
       is_main: true
       internal_port: 3001
       add_to_main_network: true
+x-runtipi:
+  schema_version: 2
+  overrides: []

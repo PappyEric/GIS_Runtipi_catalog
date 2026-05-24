@@ -22,3 +22,6 @@ services:
     image: ollama/ollama:latest
     volumes:
       - ${APP_DATA_DIR}/ollama:/root/.ollama
+x-runtipi:
+  schema_version: 2
+  overrides: []
