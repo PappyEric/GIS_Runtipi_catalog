@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: geonode/nginx:5.0.0
+    image: geonode/nginx:latest
     environment:
       RESOLVER: 127.0.0.11
     depends_on:
@@ -11,7 +11,7 @@ services:
       internal_port: 80
 
   django:
-    image: geonode/geonode:5.0.0
+    image: geonode/geonode:latest-ubuntu-24.04
     environment:
       GEONODE_INSTANCE_NAME: geonode
       GEONODE_LB_HOST_IP: ${GEONODE_LB_HOST_IP}
@@ -51,7 +51,7 @@ services:
     image: redis:7-alpine
 
   celery:
-    image: geonode/geonode:5.0.0
+    image: geonode/geonode:latest-ubuntu-24.04
     environment:
       DB_PASSWORD: ${DB_PASSWORD}
       BROKER_URL: redis://redis:6379/1
