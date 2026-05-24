@@ -14,7 +14,7 @@ services:
         echo "=== Step 1: Run first migration branch ==="
         flask --app application db upgrade b9ec9ab6694f
 
-        echo "=== Step 2: Create removed_project stub table ==="
+        echo "=== Step 2: Resolve Community Branch Data Migration ==="
         python3 -c "
         import psycopg2, os
         conn = psycopg2.connect(
@@ -25,14 +25,11 @@ services:
             database=os.environ['DB_DATABASE']
         )
         cur = conn.cursor()
-        cur.execute('CREATE TABLE IF NOT EXISTS removed_project (workspace_id integer, name text, namespace text)')
+        cur.execute(\"INSERT INTO alembic_version (version_num) VALUES ('35af0c8be41e') ON CONFLICT DO NOTHING\")
         conn.commit()
         conn.close()
-        print('removed_project table ready.')
+        print('Community branch stamped.')
         "
-
-        echo "=== Step 3: Run second migration branch ==="
-        flask --app application db upgrade 35af0c8be41e
 
         echo "=== Step 4: Initialize workspace ==="
         flask --app application init || true
