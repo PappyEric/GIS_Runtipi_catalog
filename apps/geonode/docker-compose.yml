@@ -6,6 +6,8 @@ services:
     depends_on:
       - django
       - geoserver
+    volumes:
+      - ${APP_DATA_DIR}/statics:/mnt/volumes/statics
     x-runtipi:
       is_main: true
       internal_port: 80
@@ -45,6 +47,9 @@ services:
       C_FORCE_ROOT: "True"
       IS_CELERY: "False"
     command: uwsgi --ini /usr/src/geonode/uwsgi.ini
+    volumes:
+      - ${APP_DATA_DIR}/statics:/mnt/volumes/statics
+      - ${APP_DATA_DIR}/geoserver_data:/geoserver_data/data
     depends_on:
       - db
       - redis
@@ -63,6 +68,8 @@ services:
       GEONODE_GEODATABASE: geonode_data
       GEONODE_GEODATABASE_USER: postgres
       GEONODE_GEODATABASE_PASSWORD: postgres
+    volumes:
+      - ${APP_DATA_DIR}/geoserver_data:/geoserver_data/data
     depends_on:
       - django
       - db
@@ -88,6 +95,8 @@ services:
       C_FORCE_ROOT: "True"
       IS_CELERY: "True"
     command: celery-cmd
+    volumes:
+      - ${APP_DATA_DIR}/statics:/mnt/volumes/statics
     depends_on:
       - db
       - redis
