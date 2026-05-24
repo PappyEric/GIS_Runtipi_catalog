@@ -22,7 +22,7 @@ services:
       add_to_main_network: true
 
   django:
-    image: geonode/geonode:latest-ubuntu-24.04
+    image: geonode/geonode:5.0.2
     environment:
       GEONODE_INSTANCE_NAME: geonode
       GEONODE_LB_HOST_IP: ${GEONODE_LB_HOST_IP}
@@ -61,7 +61,7 @@ services:
     image: redis:7-alpine
 
   celery:
-    image: geonode/geonode:latest-ubuntu-24.04
+    image: geonode/geonode:5.0.2
     environment:
       DB_HOST: db
       DB_PORT: "5432"
