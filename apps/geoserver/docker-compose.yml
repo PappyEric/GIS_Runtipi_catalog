@@ -1,0 +1,12 @@
+services:
+  geoserver:
+    image: kartoza/geoserver:latest
+    environment:
+      GEOSERVER_ADMIN_USER: ${GEOSERVER_ADMIN_USER}
+      GEOSERVER_ADMIN_PASSWORD: ${GEOSERVER_ADMIN_PASSWORD}
+      SAMPLE_DATA: "true"
+    volumes:
+      - ${APP_DATA_DIR}/data:/opt/geoserver/data_dir
+    x-runtipi:
+      is_main: true
+      internal_port: 8080

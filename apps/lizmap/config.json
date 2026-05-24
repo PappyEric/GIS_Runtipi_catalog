@@ -16,5 +16,8 @@
     "supported_architectures": [
         "amd64"
     ],
-    "form_fields": []
+    "form_fields": [],
+    "dynamic_config": true,
+    "created_at": 1745082405284,
+    "updated_at": 1745674974072
 }

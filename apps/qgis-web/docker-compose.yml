@@ -1,0 +1,14 @@
+services:
+  qgis-web:
+    image: lscr.io/linuxserver/qgis:latest
+    environment:
+      PGID: "1000"
+      TZ: Etc/UTC
+      CUSTOM_USER: ${KASM_USER}
+      PASSWORD: ${KASM_PASSWORD}
+      PUID: "1000"
+    volumes:
+      - ${APP_DATA_DIR}/config:/config
+    x-runtipi:
+      is_main: true
+      internal_port: 3000

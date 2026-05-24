@@ -1,0 +1,11 @@
+services:
+  postgrest:
+    image: postgrest/postgrest:latest
+    environment:
+      PGRST_DB_URI: postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:5433/${DB_NAME}
+      PGRST_DB_SCHEMA: public
+      PGRST_DB_ANON_ROLE: ${DB_USER}
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+      add_to_main_network: true

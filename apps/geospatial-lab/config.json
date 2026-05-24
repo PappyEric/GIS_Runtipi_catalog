@@ -17,5 +17,15 @@
         "amd64",
         "arm64"
     ],
-    "form_fields": []
+    "form_fields": [
+        {
+            "type": "password",
+            "env_variable": "APP_PASSWORD",
+            "label": "JupyterLab Password / Token",
+            "required": true
+        }
+    ],
+    "dynamic_config": true,
+    "created_at": 1745082405284,
+    "updated_at": 1745674974072
 }

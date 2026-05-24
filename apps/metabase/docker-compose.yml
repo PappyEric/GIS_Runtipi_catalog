@@ -1,0 +1,16 @@
+services:
+  metabase:
+    image: metabase/metabase:latest
+    environment:
+      MB_DB_TYPE: postgres
+      MB_DB_DBNAME: ${MB_DB_DBNAME}
+      MB_DB_PORT: "5433"
+      MB_DB_USER: ${MB_DB_USER}
+      MB_DB_PASS: ${MB_DB_PASS}
+      MB_DB_HOST: ${MB_DB_HOST}
+    volumes:
+      - ${APP_DATA_DIR}/data:/metabase-data
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+      add_to_main_network: true

@@ -1,0 +1,12 @@
+services:
+  geospatial-lab:
+    image: quay.io/jupyter/datascience-notebook:latest
+    command: start-notebook.sh --NotebookApp.token="${APP_PASSWORD}"
+    environment:
+      JUPYTER_TOKEN: ${APP_PASSWORD}
+      JUPYTER_ENABLE_LAB: yes
+    volumes:
+      - ${APP_DATA_DIR}/work:/home/jovyan/work
+    x-runtipi:
+      is_main: true
+      internal_port: 8888

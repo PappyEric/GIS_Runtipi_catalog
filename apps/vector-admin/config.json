@@ -17,5 +17,37 @@
         "amd64",
         "arm64"
     ],
-    "form_fields": []
+    "form_fields": [
+        {
+            "type": "text",
+            "env_variable": "PG_HOST",
+            "label": "Postgres Host",
+            "default": "gis-postgres",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "PG_USER",
+            "label": "Postgres User",
+            "default": "postgres",
+            "required": true
+        },
+        {
+            "type": "password",
+            "env_variable": "PG_PASS",
+            "label": "Postgres Password",
+            "default": "postgisadmin",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "PG_DB",
+            "label": "Postgres Database Name",
+            "default": "gis",
+            "required": true
+        }
+    ],
+    "dynamic_config": true,
+    "created_at": 1745082405284,
+    "updated_at": 1745674974072
 }

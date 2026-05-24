@@ -16,5 +16,30 @@
     "supported_architectures": [
         "amd64"
     ],
-    "form_fields": []
+    "form_fields": [
+        {
+            "type": "text",
+            "env_variable": "DB_HOST",
+            "label": "Postgres Database Host",
+            "default": "gis-postgres",
+            "required": true
+        },
+        {
+            "type": "text",
+            "env_variable": "DB_USER",
+            "label": "Postgres Database User",
+            "default": "postgres",
+            "required": true
+        },
+        {
+            "type": "password",
+            "env_variable": "DB_PASSWORD",
+            "label": "Postgres Database Password",
+            "default": "postgisadmin",
+            "required": true
+        }
+    ],
+    "dynamic_config": true,
+    "created_at": 1745082405284,
+    "updated_at": 1745674974072
 }

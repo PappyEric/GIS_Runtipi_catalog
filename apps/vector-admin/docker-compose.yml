@@ -1,0 +1,13 @@
+services:
+  vector-admin:
+    image: mintplexlabs/vector-admin:latest
+    environment:
+      PG_HOST: ${PG_HOST}
+      PG_PORT: "5433"
+      PG_USER: ${PG_USER}
+      PG_PASS: ${PG_PASS}
+      PG_DB: ${PG_DB}
+    x-runtipi:
+      is_main: true
+      internal_port: 3001
+      add_to_main_network: true

@@ -1,0 +1,12 @@
+services:
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+    volumes:
+      - ${APP_DATA_DIR}/data:/var/lib/pgadmin
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+      add_to_main_network: true

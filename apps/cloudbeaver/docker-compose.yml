@@ -1,0 +1,9 @@
+services:
+  cloudbeaver:
+    image: dbeaver/cloudbeaver:latest
+    volumes:
+      - ${APP_DATA_DIR}/workspace:/opt/cloudbeaver/workspace
+    x-runtipi:
+      is_main: true
+      internal_port: 8978
+      add_to_main_network: true

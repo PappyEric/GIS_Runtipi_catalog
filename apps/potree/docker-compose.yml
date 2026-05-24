@@ -1,0 +1,8 @@
+services:
+  potree:
+    image: nginx:alpine
+    volumes:
+      - ${APP_DATA_DIR}/www:/usr/share/nginx/html
+    x-runtipi:
+      is_main: true
+      internal_port: 80

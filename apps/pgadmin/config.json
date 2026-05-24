@@ -31,5 +31,8 @@
             "label": "Admin Password",
             "required": true
         }
-    ]
+    ],
+    "dynamic_config": true,
+    "created_at": 1745082405284,
+    "updated_at": 1745674974072
 }

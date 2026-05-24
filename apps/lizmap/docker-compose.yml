@@ -1,0 +1,74 @@
+services:
+  lizmap-init:
+    image: alpine:latest
+    command: sh -c 'mkdir -p /srv/plugins /www/lizmap/var/db /www/lizmap/var/config
+      /www/lizmap/var/log /www/lizmap/www; if [ ! -f
+      /srv/plugins/lizmap_server/metadata.txt ]; then echo "Installing Lizmap
+      server plugin..."; apk add --no-cache wget unzip; wget -q -O
+      /tmp/plugin.zip
+      https://github.com/3liz/qgis-lizmap-server-plugin/archive/refs/heads/master.zip;
+      unzip -o /tmp/plugin.zip -d /tmp/; rm -rf /srv/plugins/lizmap_server; mv
+      /tmp/qgis-lizmap-server-plugin-master /srv/plugins/lizmap_server; fi;
+      chown -R 1000:1000 /srv/plugins /www/lizmap/var /www/lizmap/www; chmod -R
+      775 /srv/plugins /www/lizmap/var; echo "Init complete, sleeping..."; sleep
+      infinity'
+    volumes:
+      - ${APP_DATA_DIR}/var/db:/www/lizmap/var/db
+      - ${APP_DATA_DIR}/var/config:/www/lizmap/var/config
+      - ${APP_DATA_DIR}/var/log:/www/lizmap/var/log
+      - ${APP_DATA_DIR}/www:/www/lizmap/www
+      - ${APP_DATA_DIR}/plugins:/srv/plugins
+  nginx:
+    image: nginx:alpine
+    command: /bin/sh -c "echo
+      'c2VydmVyIHsKICAgIGxpc3RlbiA4MDsKICAgIHNlcnZlcl9uYW1lIF87CiAgICByb290IC93d3cvbGl6bWFwL3d3dzsKICAgIGluZGV4IGluZGV4LnBocCBpbmRleC5odG1sOwogICAgY2xpZW50X21heF9ib2R5X3NpemUgMTAwTTsKICAgIGZhc3RjZ2lfcmVhZF90aW1lb3V0IDMwMDsKICAgIGxvY2F0aW9uIC8gewogICAgICAgIHRyeV9maWxlcyAkdXJpICR1cmkvIC9pbmRleC5waHAkaXNfYXJncyRhcmdzOwogICAgfQogICAgbG9jYXRpb24gfiBcLnBocCgvfCQpIHsKICAgICAgICBmYXN0Y2dpX3NwbGl0X3BhdGhfaW5mbyBeKC4rXC5waHApKC8uKykkOwogICAgICAgIGZhc3RjZ2lfcGFzcyBsaXptYXA6OTAwMDsKICAgICAgICBmYXN0Y2dpX2luZGV4IGluZGV4LnBocDsKICAgICAgICBpbmNsdWRlIGZhc3RjZ2lfcGFyYW1zOwogICAgICAgIGZhc3RjZ2lfcGFyYW0gU0NSSVBUX0ZJTEVOQU1FICRkb2N1bWVudF9yb290JGZhc3RjZ2lfc2NyaXB0X25hbWU7CiAgICAgICAgZmFzdGNnaV9wYXJhbSBQQVRIX0lORk8gJGZhc3RjZ2lfcGF0aF9pbmZvOwogICAgfQp9Cg=='
+      | base64 -d > /etc/nginx/conf.d/default.conf && nginx -g 'daemon off;'"
+    volumes:
+      - ${APP_DATA_DIR}/www:/www/lizmap/www
+    depends_on:
+      - lizmap
+    x-runtipi:
+      is_main: true
+      internal_port: 80
+  lizmap:
+    image: 3liz/lizmap-web-client:3.8
+    environment:
+      LIZMAP_WMSSERVERURL: http://qgis-server:8080/ows/
+      LIZMAP_CACHERREDISHOST: redis
+      LIZMAP_CACHESTORAGETYPE: redis
+      LIZMAP_CACHEREDISDB: "1"
+      LIZMAP_HOME: /www/lizmap
+      LIZMAP_USER: "1000"
+      LIZMAP_GID: "1000"
+    volumes:
+      - ${APP_DATA_DIR}/projects:/srv/projects
+      - ${APP_DATA_DIR}/www:/www/lizmap/www
+      - ${APP_DATA_DIR}/var/db:/www/lizmap/var/db
+      - ${APP_DATA_DIR}/var/config:/www/lizmap/var/config
+      - ${APP_DATA_DIR}/var/log:/www/lizmap/var/log
+    depends_on:
+      - qgis-server
+      - redis
+      - lizmap-init
+    x-runtipi:
+      add_to_main_network: true
+  qgis-server:
+    image: 3liz/qgis-map-server:3.34
+    environment:
+      QGSRV_SERVER_WORKERS: "4"
+      QGSRV_LOGGING_LEVEL: DEBUG
+      QGIS_SERVER_LIZMAP_REVEAL_SETTINGS: "true"
+      QGSRV_API_ENABLED_LIZMAP: "true"
+      QGSRV_SERVER_PLUGINPATH: /srv/plugins
+      QGIS_PLUGINPATH: /srv/plugins
+      QGSRV_CACHE_ROOTDIR: /srv/projects
+      QGSRV_USER: 1000:1000
+    volumes:
+      - ${APP_DATA_DIR}/projects:/srv/projects
+      - ${APP_DATA_DIR}/plugins:/srv/plugins
+    depends_on:
+      - lizmap-init
+    x-runtipi:
+      add_to_main_network: true
+  redis:
+    image: redis:alpine

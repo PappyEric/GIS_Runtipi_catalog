@@ -1,0 +1,8 @@
+services:
+  martin:
+    image: maplibre/martin:v0.14.0
+    command: ${DATABASE_URL}
+    x-runtipi:
+      is_main: true
+      internal_port: 3000
+      add_to_main_network: true
