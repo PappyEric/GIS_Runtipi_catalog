@@ -6,7 +6,7 @@ services:
 
   mergin-maps:
     image: lutraconsulting/merginmaps-backend:2025.7.3
-    entrypoint: ["/bin/bash", "-c", "umask 0027 && flask --app application db upgrade b9ec9ab6694f && flask --app application db upgrade 35af0c8be41e && (flask --app application user create \"${ADMIN_USER}\" \"${ADMIN_PASSWORD}\" --is-admin --email \"${ADMIN_EMAIL}\" || true) && gunicorn -w 4 -b 0.0.0.0:5000 --config config.py application:application"]
+    entrypoint: ["/bin/bash", "-c", "cat /app/migrations/community/35af0c8be41e_migrate_data_to_workspace.py; exit 1"]
     depends_on:
       - mergin-maps-redis
     environment:
