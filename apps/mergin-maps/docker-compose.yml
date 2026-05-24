@@ -24,7 +24,7 @@ services:
       - ${APP_DATA_DIR}/data:/data
     x-runtipi:
       is_main: true
-      internal_port: 80
+      internal_port: 5000
       add_to_main_network: true
 
   mergin-maps-worker:
