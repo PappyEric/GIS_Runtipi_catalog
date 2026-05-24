@@ -43,6 +43,8 @@ services:
       ADMIN_PASSWORD: ${ADMIN_PASSWORD}
       ADMIN_EMAIL: admin@example.com
       C_FORCE_ROOT: "True"
+      IS_CELERY: "False"
+    command: uwsgi --ini /usr/src/geonode/uwsgi.ini
     depends_on:
       - db
       - redis
@@ -84,6 +86,7 @@ services:
       DEFAULT_BACKEND_DATASTORE: datastore
       BROKER_URL: redis://redis:6379/1
       C_FORCE_ROOT: "True"
+      IS_CELERY: "True"
     command: celery-cmd
     depends_on:
       - db
