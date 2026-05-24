@@ -6,7 +6,7 @@ services:
 
   mergin-maps:
     image: lutraconsulting/merginmaps-backend:2025.7.3
-    entrypoint: ["/bin/bash", "-c", "umask 0027 && flask db upgrade && (flask user create \"${ADMIN_USER}\" \"${ADMIN_PASSWORD}\" --is-admin --email \"${ADMIN_EMAIL}\" || true) && gunicorn -w 4 -b 0.0.0.0:5000 --config config.py application:application"]
+    entrypoint: ["/bin/bash", "-c", "umask 0027 && flask --app application db upgrade && (flask --app application user create \"${ADMIN_USER}\" \"${ADMIN_PASSWORD}\" --is-admin --email \"${ADMIN_EMAIL}\" || true) && gunicorn -w 4 -b 0.0.0.0:5000 --config config.py application:application"]
     depends_on:
       - mergin-maps-redis
     environment:
