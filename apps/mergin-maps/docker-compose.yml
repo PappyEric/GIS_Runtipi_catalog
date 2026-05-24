@@ -6,7 +6,7 @@ services:
 
   mergin-maps:
     image: lutraconsulting/merginmaps-backend:2025.7.3
-    command: gunicorn -w 4 -b 0.0.0.0:5000 --config config.py application:application
+    entrypoint: ["/bin/bash", "-c", "umask 0027 && gunicorn -w 4 -b 0.0.0.0:8080 --config config.py application:application"]
     depends_on:
       - mergin-maps-redis
     environment:
@@ -25,12 +25,12 @@ services:
       - ${APP_DATA_DIR}/data:/data
     x-runtipi:
       is_main: true
-      internal_port: 5000
+      internal_port: 8080
       add_to_main_network: true
 
   mergin-maps-worker:
     image: lutraconsulting/merginmaps-backend:2025.7.3
-    command: celery -A application.celery worker --loglevel=info
+    entrypoint: ["/bin/bash", "-c", "umask 0027 && celery -A application.celery worker --loglevel=info"]
     depends_on:
       - mergin-maps-redis
       - mergin-maps
@@ -53,7 +53,7 @@ services:
 
   mergin-maps-beat:
     image: lutraconsulting/merginmaps-backend:2025.7.3
-    command: celery -A application.celery beat --loglevel=info
+    entrypoint: ["/bin/bash", "-c", "umask 0027 && celery -A application.celery beat --loglevel=info"]
     depends_on:
       - mergin-maps-redis
       - mergin-maps
