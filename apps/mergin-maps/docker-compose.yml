@@ -2,10 +2,11 @@ services:
   mergin-maps:
     image: merginmaps/server:latest
     environment:
-      DB_host: ${DB_HOST}
-      DB_port: "5433"
-      DB_user: ${DB_USER}
-      DB_pass: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_PORT: "5433"
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_DATABASE: "gis"
     volumes:
       - ${APP_DATA_DIR}/data:/data
     x-runtipi:
