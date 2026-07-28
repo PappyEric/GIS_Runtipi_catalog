@@ -32,7 +32,7 @@ services:
         "
 
         echo "=== Step 3: Complete remaining database migrations ==="
-        flask --app application db upgrade
+        flask --app application db upgrade heads
 
         echo "=== Step 4: Initialize workspace ==="
         flask --app application init || true
