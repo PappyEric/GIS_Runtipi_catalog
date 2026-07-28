@@ -12,7 +12,7 @@ services:
       - |
         set -e
         echo "=== Step 1: Run first migration branch ==="
-        flask --app application db upgrade b9ec9ab6694f
+        flask --app application db upgrade b9ec9ab6694f || true
 
         echo "=== Step 2: Resolve Community Branch Data Migration ==="
         python3 -c "
@@ -30,6 +30,9 @@ services:
         conn.close()
         print('Community branch stamped.')
         "
+
+        echo "=== Step 3: Complete remaining database migrations ==="
+        flask --app application db upgrade
 
         echo "=== Step 4: Initialize workspace ==="
         flask --app application init || true
@@ -123,9 +126,9 @@ services:
   mergin-maps-proxy:
     image: nginxinc/nginx-unprivileged:1.27
     restart: always
-    command: /bin/sh -c "echo 'c2VydmVyIHsKICAgbGlzdGVuIDgwODA7CiAgIGxpc3RlbiBbOjpdOjgwODA7CiAgIHNlcnZlcl9uYW1lIF87CgogICBjbGllbnRfbWF4X2JvZHlfc2l6ZSA0RzsKCiAgIGxvY2F0aW9uIC8gewogICAgIHByb3h5X3NldF9oZWFkZXIgWC1Gb3J3YXJkZWQtRm9yICRwcm94eV9hZGRfeF9mb3J3YXJkZWRfZm9yOwogICAgIHByb3h5X3NldF9oZWFkZXIgWC1Gb3J3YXJkZWQtUHJvdG8gJHNjaGVtZTsKICAgICBwcm94eV9zZXRfaGVhZGVyIEhvc3QgJGh0dHBfaG9zdDsKICAgICBwcm94eV9yZWRpcmVjdCBvZmY7CiAgICAgcHJveHlfcGFzcyBodHRwOi8vbWVyZ2luLW1hcHMtd2ViOjgwODA7CiAgIH0KCiAgIGxvY2F0aW9uIH4gL2FwcC9wcm9qZWN0cy8oW14vXSspL2Rvd25sb2FkIHsKICAgICBwcm94eV9zZXRfaGVhZGVyIFgtRm9yd2FyZGVkLUZvciAkcHJveHlfYWRkX3hfZm9yd2FyZGVkX2ZvcjsKICAgICBwcm94eV9zZXRfaGVhZGVyIFgtRm9yd2FyZGVkLVByb3RvICRzY2hlbWU7CiAgICAgcHJveHlfc2V0X2hlYWRlciBIb3N0ICRodHRwX2hvc3Q7CiAgICAgcHJveHlfcmVkaXJlY3Qgb2ZmOwogICAgIHByb3h5X3Bhc3MgaHR0cDovL21lcmdpbi1tYXBzOjUwMDA7CiAgICAgcHJveHlfaGlkZV9oZWFkZXIgWC1UcmFjZS1JZDsKCiAgICAgY2xpZW50X21heF9ib2R5X3NpemUgMDsKICAgICBwcm94eV9odHRwX3ZlcnNpb24gMS4xOwogICAgIHByb3h5X3JlcXVlc3RfYnVmZmVyaW5nIG9mZjsKICAgICBwcm94eV9idWZmZXJpbmcgb2ZmOwogICB9CgogICBsb2NhdGlvbiB+IF4vKHYxL3x2Mi98YXBwL3xwaW5nfGNvbmZpZykgewogICAgIHByb3h5X3NldF9oZWFkZXIgWC1Gb3J3YXJkZWQtRm9yICRwcm94eV9hZGRfeF9mb3J3YXJkZWRfZm9yOwogICAgIHByb3h5X3NldF9oZWFkZXIgWC1Gb3J3YXJkZWQtUHJvdG8gJHNjaGVtZTsKICAgICBwcm94eV9zZXRfaGVhZGVyIEhvc3QgJGh0dHBfaG9zdDsKICAgICBwcm94eV9wYXNzIGh0dHA6Ly9tZXJnaW4tbWFwczo1MDAwOwogICAgIHByb3h5X2hpZGVfaGVhZGVyIFgtVHJhY2UtSWQ7CiAgIH0KCiAgIGxvY2F0aW9uIC9kb3dubG9hZC8gewogICAgIGludGVybmFsOwogICAgIGFsaWFzIC9kYXRhLzsKICAgfQp9Cg==' | base64 -d > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
     volumes:
       - ${APP_DATA_DIR}/data:/data
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:
       - mergin-maps
       - mergin-maps-web
