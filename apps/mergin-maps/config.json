@@ -42,7 +42,7 @@
             "type": "text",
             "env_variable": "DB_PORT",
             "label": "Postgres Database Port",
-            "default": "5433",
+            "default": "5432",
             "required": true
         },
         {
